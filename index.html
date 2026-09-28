@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ahmed Mohamed Abdo | Portfolio</title>
 
-  <!-- SEO Meta Tags -->
   <meta name="description" content="Personal Portfolio of Ahmed Mohamed Abdo - Flutter Developer, Front-End & WordPress Developer, and C++ Problem Solver studying CS & AI at South Valley National University (SVNU), Egypt." />
   <meta name="keywords" content="Ahmed Mohamed Abdo, Flutter Developer, Clean Architecture, BLoC, WordPress Developer, Codeforces a7md3bdo, Al-Minshawi App, Qena, Egypt" />
   <meta name="author" content="Ahmed Mohamed Abdo" />
 
-  <!-- OpenGraph / Social Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ahmed Mohamed Abdo | Portfolio" />
   <meta property="og:description" content="Flutter Developer | Front-End & WordPress Developer | Problem Solver in C++" />
@@ -19,21 +17,16 @@
 
   <link rel="icon" type="image/jpeg" href="assests/mr.robot.jpg" />
 
-  <!-- Google Fonts: Red Hat Display & Cairo -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* =========================================================================
-       Ahmed Gamal Design System Tokens & Keyframes
-       ========================================================================= */
+
     :root {
       --pink: #E31F71;
       --black: #212121;
@@ -61,10 +54,9 @@
     }
 
     html {
-      font-size: 62.5%; /* 1rem = 10px */
+      font-size: 62.5%;
     }
 
-    /* Fixed Header Styles */
     header.header-fixed {
       display: flex;
       justify-content: space-between;
@@ -134,7 +126,6 @@
       width: 80%;
     }
 
-    /* Buttons */
     button, .button {
       border: none;
       cursor: pointer;
@@ -165,7 +156,6 @@
       color: #050801;
     }
 
-    /* Mobile Hamburger Menu */
     .menu-container {
       cursor: pointer;
       padding: 0.6rem 0;
@@ -216,7 +206,6 @@
       background-color: var(--green);
     }
 
-    /* Main Container & Particle Canvas */
     main.main-container {
       position: relative;
       z-index: 0;
@@ -234,7 +223,6 @@
       pointer-events: none;
     }
 
-    /* Hero Section */
     section#home {
       padding-top: 16rem;
       padding-bottom: 8rem;
@@ -358,7 +346,6 @@
       50% { transform: translateY(-15px); }
     }
 
-    /* About Section */
     section#about {
       margin-top: 14rem;
       display: grid;
@@ -456,7 +443,6 @@
       color: #cbd5e1;
     }
 
-    /* What I Do Section */
     section#skills {
       margin-top: 16rem;
     }
@@ -580,7 +566,6 @@
       color: var(--green);
     }
 
-    /* Projects Section (Classic Folder Cards) */
     section#project {
       margin-top: 16rem;
     }
@@ -721,7 +706,6 @@
       font-weight: 500;
     }
 
-    /* Contact Section */
     section#contact {
       margin-top: 16rem;
     }
@@ -797,7 +781,6 @@
       color: #ffffff;
     }
 
-    /* Contact Form & Signature Animated Button */
     .contact-form-container {
       margin-top: 3rem;
       display: grid;
@@ -852,7 +835,6 @@
       resize: vertical;
     }
 
-    /* THE SIGNATURE .second-cta ANIMATED BUTTON */
     .second-cta {
       color: #17f917;
       display: inline-block;
@@ -946,7 +928,6 @@
       50%, 100% { bottom: 100%; }
     }
 
-    /* Footer */
     footer.footer {
       background-color: #2b2b2b;
       padding: 4rem 10rem;
@@ -984,7 +965,6 @@
       transform: translateY(-3px);
     }
 
-    /* Scroll to Top Button */
     .scroll-top-btn {
       position: fixed;
       bottom: 3rem;
@@ -1018,7 +998,6 @@
       transform: translateY(-4px);
     }
 
-    /* Modal Gallery */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -1045,7 +1024,6 @@
       box-shadow: 0 0 50px rgba(23, 249, 23, 0.2);
     }
 
-    /* Responsive Media Queries */
     @media (max-width: 1100px) {
       header.header-fixed,
       main.main-container,
@@ -1194,9 +1172,6 @@
 
 <body>
 
-  <!-- ========================================================================= -->
-  <!-- 1. FIXED HEADER / NAVBAR                                                  -->
-  <!-- ========================================================================= -->
   <header class="header-fixed">
     <a href="#home" class="logo">
       <span class="green">&lt;</span>
@@ -1221,19 +1196,10 @@
     </div>
   </header>
 
-  <!-- ========================================================================= -->
-  <!-- BACKGROUND PARTICLE NETWORK CANVAS                                        -->
-  <!-- ========================================================================= -->
   <canvas id="tsparticles"></canvas>
 
-  <!-- ========================================================================= -->
-  <!-- MAIN CONTENT CONTAINER                                                    -->
-  <!-- ========================================================================= -->
   <main class="main-container">
 
-    <!-- ======================================================================= -->
-    <!-- 2. HERO SECTION (#home)                                                 -->
-    <!-- ======================================================================= -->
     <section id="home">
       <div class="hero-text">
         <p class="greeting">
@@ -1246,7 +1212,7 @@
         <h3>Flutter Developer | Front-End &amp; WordPress Developer</h3>
 
         <p class="small-resume">
-          Computer Science &amp; Artificial Intelligence student at South Valley National University (SVNU), Egypt. 
+          Computer Science &amp; Artificial Intelligence student at South Valley National University (SVNU), Egypt.
           Dedicated to engineering scalable mobile applications with Clean Architecture and algorithmic problem solving in C++.
         </p>
 
@@ -1288,9 +1254,6 @@
       </div>
     </section>
 
-    <!-- ======================================================================= -->
-    <!-- 3. ABOUT ME SECTION (#about)                                            -->
-    <!-- ======================================================================= -->
     <section id="about">
       <div class="about-image">
         <div class="img-card">
@@ -1302,16 +1265,16 @@
         <h2>About me</h2>
 
         <p>
-          I'm a passionate <strong>Flutter Developer</strong> and software engineer currently pursuing my degree in 
+          I'm a passionate <strong>Flutter Developer</strong> and software engineer currently pursuing my degree in
           <strong>Computer Science &amp; Artificial Intelligence</strong> at South Valley National University (SVNU), Qena, Egypt.
         </p>
         <p>
-          My engineering approach unites rigorous computer science theory with production-grade execution: building cross-platform mobile apps 
+          My engineering approach unites rigorous computer science theory with production-grade execution: building cross-platform mobile apps
           with <strong>Clean Architecture</strong>, modular BLoC/Cubit state management, offline-first caching, and high-performance algorithms.
         </p>
         <p>
-          Beyond mobile, I specialize in custom <strong>WordPress</strong> solutions—having built and deployed complete platforms like 
-          <a href="https://alfjracademy.com" target="_blank" class="text-[var(--green)] underline font-semibold">Alfjr Academy (أكاديمية الفجر)</a>—and 
+          Beyond mobile, I specialize in custom <strong>WordPress</strong> solutions—having built and deployed complete platforms like
+          <a href="https://alfjracademy.com" target="_blank" class="text-[var(--green)] underline font-semibold">Alfjr Academy (أكاديمية الفجر)</a>—and
           active competitive programming in <strong>C++</strong> on Codeforces with 500+ solved problems.
         </p>
 
@@ -1358,13 +1321,9 @@
       </div>
     </section>
 
-    <!-- ======================================================================= -->
-    <!-- 4. WHAT I DO SECTION (#skills)                                          -->
-    <!-- ======================================================================= -->
     <section id="skills">
       <h1 class="skills-header">What <span>I Do?</span></h1>
 
-      <!-- Block 1: Front End & Mobile Development -->
       <div class="skills-main-div">
         <div class="skills-image-div">
           <div class="skills-icon-badge">
@@ -1403,7 +1362,6 @@
         </div>
       </div>
 
-      <!-- Block 2: Competitive Programming & C++ -->
       <div class="skills-main-div reverse">
         <div class="skills-image-div">
           <div class="skills-icon-badge">
@@ -1441,7 +1399,6 @@
         </div>
       </div>
 
-      <!-- Block 3: WordPress & Web Solutions -->
       <div class="skills-main-div">
         <div class="skills-image-div">
           <div class="skills-icon-badge">
@@ -1480,9 +1437,6 @@
       </div>
     </section>
 
-    <!-- ======================================================================= -->
-    <!-- 5. PROJECTS SECTION (#project)                                          -->
-    <!-- ======================================================================= -->
     <section id="project">
       <div class="projects-header">
         <h1>Featured <span>Projects</span></h1>
@@ -1491,7 +1445,6 @@
 
       <div class="projects-grid">
 
-        <!-- Card 1: Al-Minshawi Quran Recitations App (STAR PROJECT) -->
         <div class="project-card featured-card">
           <div>
             <div class="project-top">
@@ -1513,8 +1466,8 @@
               </div>
 
               <p>
-                A high-performance Flutter Quran audio application dedicated to Sheikh Mohamed Siddiq El-Minshawi. 
-                Features seamless background audio playback (audio_service), precision A-B repeat looping, offline-first caching via Hive NoSQL, 
+                A high-performance Flutter Quran audio application dedicated to Sheikh Mohamed Siddiq El-Minshawi.
+                Features seamless background audio playback (audio_service), precision A-B repeat looping, offline-first caching via Hive NoSQL,
                 and Clean Architecture with Cubit.
               </p>
 
@@ -1538,7 +1491,6 @@
           </ul>
         </div>
 
-        <!-- Card 2: Alfjr Academy (أكاديمية الفجر) -->
         <div class="project-card">
           <div>
             <div class="project-top">
@@ -1554,7 +1506,7 @@
               <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Live E-Learning Portal</span>
               <h3>Alfjr Academy (أكاديمية الفجر)</h3>
               <p>
-                Full-scale educational platform deployed for real students. Built on custom WordPress architecture with WooCommerce integration, 
+                Full-scale educational platform deployed for real students. Built on custom WordPress architecture with WooCommerce integration,
                 course dashboards, interactive assessments, high-speed caching, and complete on-page SEO optimization.
               </p>
 
@@ -1577,7 +1529,6 @@
           </ul>
         </div>
 
-        <!-- Card 3: Multi-Vendor E-Commerce Platform -->
         <div class="project-card">
           <div>
             <div class="project-top">
@@ -1593,7 +1544,7 @@
               <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Mobile Architecture</span>
               <h3>Multi-Vendor E-Commerce App</h3>
               <p>
-                Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering, 
+                Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering,
                 dynamic cart state management with BLoC, authentication flow, and robust REST API data integration with Dio.
               </p>
             </div>
@@ -1608,7 +1559,6 @@
           </ul>
         </div>
 
-        <!-- Card 4: Codeforces Algorithmic Problem Solving -->
         <div class="project-card">
           <div>
             <div class="project-top">
@@ -1624,7 +1574,7 @@
               <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Competitive Programming</span>
               <h3>Algorithms &amp; Problem Solving</h3>
               <p>
-                Active competitive programming profile on Codeforces (<span class="text-[var(--green)] font-mono font-bold">@a7md3bdo</span>). 
+                Active competitive programming profile on Codeforces (<span class="text-[var(--green)] font-mono font-bold">@a7md3bdo</span>).
                 Repository of 500+ solved algorithmic challenges in C++20 covering Graph Algorithms, Dynamic Programming, Segment Trees, and Number Theory.
               </p>
 
@@ -1649,9 +1599,6 @@
       </div>
     </section>
 
-    <!-- ======================================================================= -->
-    <!-- 6. CONTACT SECTION (#contact)                                           -->
-    <!-- ======================================================================= -->
     <section id="contact">
       <header>
         <h2>Get In <span>Touch</span></h2>
@@ -1659,7 +1606,6 @@
         <p class="!text-slate-300 !font-normal !text-base mt-2">Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.</p>
       </header>
 
-      <!-- Direct Contact Cards -->
       <div class="contacts">
         <div class="btn-two">
           <i class="fa-regular fa-envelope"></i>
@@ -1682,7 +1628,6 @@
         </div>
       </div>
 
-      <!-- Contact Form with Signature Animated Border Button -->
       <div class="contact-form-container">
         <h2>Send a message to get started</h2>
 
@@ -1691,7 +1636,6 @@
           <input type="email" id="sender-email" name="email" placeholder="Your Email Address" required />
           <textarea id="sender-message" name="message" placeholder="Send a message to get started..." required></textarea>
 
-          <!-- THE SIGNATURE .second-cta ANIMATED BUTTON -->
           <button type="submit" class="second-cta" id="submit-btn">
             <span></span>
             <span></span>
@@ -1710,9 +1654,6 @@
 
   </main>
 
-  <!-- ========================================================================= -->
-  <!-- 7. FOOTER                                                                 -->
-  <!-- ========================================================================= -->
   <footer class="footer">
     <a href="#home" class="logo">
       <span class="green">&lt;</span>
@@ -1745,16 +1686,10 @@
     </div>
   </footer>
 
-  <!-- ========================================================================= -->
-  <!-- SCROLL TO TOP BUTTON                                                      -->
-  <!-- ========================================================================= -->
   <button type="button" class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to Top">
     <i class="fa-solid fa-chevron-up"></i>
   </button>
 
-  <!-- ========================================================================= -->
-  <!-- SCREENSHOT LIGHTBOX MODAL (AL-MINSHAWI APP)                               -->
-  <!-- ========================================================================= -->
   <div class="modal-overlay" id="screenshotModal" onclick="closeScreenshotsModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
@@ -1772,7 +1707,6 @@
         </button>
       </div>
 
-      <!-- Main Viewer Frame -->
       <div class="relative flex items-center justify-center bg-black/60 rounded-xl p-4 min-h-[460px] overflow-hidden">
         <button type="button" onclick="prevScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
           <i class="fa-solid fa-chevron-left"></i>
@@ -1785,7 +1719,6 @@
         </button>
       </div>
 
-      <!-- Thumbnails Selector -->
       <div class="flex items-center justify-center gap-3 mt-4 overflow-x-auto py-2">
         <img src="assests/screenshot_1.png" alt="Thumb 1" onclick="setScreenshot(1)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-[var(--green)] scale-105 thumb-item" id="thumb-1" />
         <img src="assests/screenshot_2.png" alt="Thumb 2" onclick="setScreenshot(2)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] thumb-item" id="thumb-2" />
@@ -1808,13 +1741,7 @@
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- JAVASCRIPT: PARTICLE ENGINE & INTERACTIONS                                -->
-  <!-- ========================================================================= -->
   <script>
-    // -------------------------------------------------------------------------
-    // 1. Mobile Menu Toggle
-    // -------------------------------------------------------------------------
     const menuBtn = document.getElementById('menu-btn');
     const menuIcon = document.getElementById('menu-icon');
     const navbarLinks = document.getElementById('navbar-links');
@@ -1833,10 +1760,6 @@
         document.body.style.overflow = 'auto';
       });
     });
-
-    // -------------------------------------------------------------------------
-    // 2. Scroll-to-Top Button
-    // -------------------------------------------------------------------------
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
@@ -1852,10 +1775,6 @@
         behavior: 'smooth'
       });
     }
-
-    // -------------------------------------------------------------------------
-    // 3. Contact Form Submission Handler
-    // -------------------------------------------------------------------------
     function handleFormSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('sender-name').value;
@@ -1872,10 +1791,6 @@
         window.location.href = `mailto:ahmed@mohamed-abdo.com?subject=${subject}&body=${body}`;
       }, 700);
     }
-
-    // -------------------------------------------------------------------------
-    // 4. Screenshots Lightbox Modal
-    // -------------------------------------------------------------------------
     let currentScreenshotIdx = 1;
     const totalScreenshots = 5;
 
@@ -1933,10 +1848,6 @@
         if (e.key === 'ArrowLeft') prevScreenshot();
       }
     });
-
-    // -------------------------------------------------------------------------
-    // 5. High-Performance Particle Canvas Engine (Matching Ahmed Gamal's tsParticles)
-    // -------------------------------------------------------------------------
     (function initParticles() {
       const canvas = document.getElementById('tsparticles');
       const ctx = canvas.getContext('2d');
@@ -1987,8 +1898,6 @@
           if (this.x > width) this.x = 0;
           if (this.y < 0) this.y = height;
           if (this.y > height) this.y = 0;
-
-          // Mouse interaction (subtle push/pull)
           if (mouse.x !== null && mouse.y !== null) {
             const dx = mouse.x - this.x;
             const dy = mouse.y - this.y;
@@ -2017,8 +1926,6 @@
 
       function animate() {
         ctx.clearRect(0, 0, width, height);
-
-        // Draw connecting lines between close particles
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
@@ -2036,8 +1943,6 @@
             }
           }
         }
-
-        // Draw and update each particle
         particles.forEach(p => {
           p.update();
           p.draw();
