@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed Mohamed Abdo | Portfolio</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Personal Portfolio of Ahmed Mohamed Abdo - Flutter Developer, Front-End & WordPress Developer, and C++ Problem Solver studying CS & AI at South Valley National University (SVNU), Egypt." />
+  <meta name="keywords" content="Ahmed Mohamed Abdo, Flutter Developer, Clean Architecture, BLoC, WordPress Developer, Codeforces a7md3bdo, Al-Minshawi App, Qena, Egypt" />
+  <meta name="author" content="Ahmed Mohamed Abdo" />
+
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ahmed Mohamed Abdo | Portfolio" />
+  <meta property="og:description" content="Flutter Developer | Front-End & WordPress Developer | Problem Solver in C++" />
+  <meta property="og:image" content="assests/mr.robot.jpg" />
+  <meta property="og:url" content="https://github.com/a7mdabdoo" />
+
+  <link rel="icon" type="image/jpeg" href="assests/mr.robot.jpg" />
+
+  <!-- Google Fonts: Red Hat Display & Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* =========================================================================
+       Ahmed Gamal Design System Tokens & Keyframes
+       ========================================================================= */
+    :root {
+      --pink: #E31F71;
+      --black: #212121;
+      --dark-card: #2b2b2b;
+      --green: #17f917;
+      --green-glow: #23ce6b;
+      --blue: #016fb9;
+      scroll-padding-top: 8rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1.6rem;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    html {
+      font-size: 62.5%; /* 1rem = 10px */
+    }
+
+    /* Fixed Header Styles */
+    header.header-fixed {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 10rem;
+      background-color: rgba(33, 33, 33, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      letter-spacing: -0.5px;
+    }
+    .logo span.green {
+      color: var(--green);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      padding: 0.6rem 0.8rem;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: filter 0.25s, color 0.25s;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--green);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* Buttons */
+    button, .button {
+      border: none;
+      cursor: pointer;
+      background-color: var(--green);
+      color: #050801;
+      border-radius: 2rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+      padding: 1rem 2.8rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      box-shadow: 0 0 15px rgba(23, 249, 23, 0.3);
+    }
+
+    button:hover, .button:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 25px rgba(23, 249, 23, 0.6);
+      transform: translateY(-2px);
+    }
+
+    nav a.button {
+      padding: 0.8rem 2.4rem;
+      color: #050801;
+    }
+
+    /* Mobile Hamburger Menu */
+    .menu-container {
+      cursor: pointer;
+      padding: 0.6rem 0;
+      display: none;
+    }
+
+    .menu {
+      width: 2.4rem;
+      height: 0.25rem;
+      background: #ffffff;
+      position: relative;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s;
+    }
+
+    .menu:before, .menu:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 0.25rem;
+      background: #ffffff;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    .menu:before {
+      bottom: 0.7rem;
+    }
+    .menu:after {
+      top: 0.7rem;
+    }
+
+    .menu.active {
+      background-color: transparent !important;
+    }
+
+    .menu.active:before {
+      bottom: 0;
+      transform: rotate(45deg);
+      background-color: var(--green);
+    }
+
+    .menu.active:after {
+      top: 0;
+      transform: rotate(135deg);
+      background-color: var(--green);
+    }
+
+    /* Main Container & Particle Canvas */
+    main.main-container {
+      position: relative;
+      z-index: 0;
+      padding: 0 10rem;
+      overflow-x: hidden;
+    }
+
+    #tsparticles {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Hero Section */
+    section#home {
+      padding-top: 16rem;
+      padding-bottom: 8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6rem;
+      min-height: 90vh;
+    }
+
+    .hero-text {
+      flex: 1.2;
+    }
+
+    .hero-text p.greeting {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-text h1 {
+      font-size: 6.4rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 1rem 0;
+      background: linear-gradient(135deg, #ffffff 40%, #a0aec0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .hero-text h3 {
+      color: var(--green);
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-text p.small-resume {
+      font-size: 1.8rem;
+      color: #cbd5e1;
+      margin-bottom: 3.5rem;
+      max-width: 60rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .button {
+      padding: 1.4rem 4.5rem;
+      font-size: 1.7rem;
+    }
+
+    .hero-text .social-media {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .hero-text .social-media a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.8rem;
+      height: 4.8rem;
+      border-radius: 50%;
+      background: #212121;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .hero-text .social-media a:hover {
+      background: var(--green);
+      color: #050801;
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(23, 249, 23, 0.5);
+      border-color: var(--green);
+    }
+
+    .hero-image {
+      flex: 0.9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-image .img-wrapper {
+      position: relative;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg, var(--green) 0%, #016fb9 100%);
+      box-shadow: 0 0 50px rgba(23, 249, 23, 0.25);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      background-color: #212121;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* About Section */
+    section#about {
+      margin-top: 14rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-image {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-image .img-card {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      border: 2px solid rgba(23, 249, 23, 0.3);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(23, 249, 23, 0.15);
+      max-width: 420px;
+      transition: all 0.4s ease;
+    }
+
+    .about-image .img-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 20px 60px rgba(23, 249, 23, 0.3);
+      transform: scale(1.02);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-text h2 {
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 2rem;
+      letter-spacing: -0.5px;
+    }
+
+    .about-text p {
+      font-size: 1.8rem;
+      letter-spacing: 0.2px;
+      line-height: 1.8;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+    }
+
+    .about-text h3 {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--green);
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .hard-skills {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin-top: 1.8rem;
+    }
+
+    .hability {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      background: #212121;
+      padding: 1.2rem 1.6rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      min-width: 80px;
+    }
+
+    .hability:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(23, 249, 23, 0.15);
+    }
+
+    .hability i {
+      font-size: 2.8rem;
+    }
+
+    .hability span {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    /* What I Do Section */
+    section#skills {
+      margin-top: 16rem;
+    }
+
+    .skills-header {
+      font-size: 4.8rem;
+      font-weight: 800;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 6rem;
+      letter-spacing: -1px;
+    }
+    .skills-header span {
+      color: var(--green);
+    }
+
+    .skills-main-div {
+      display: flex;
+      align-items: center;
+      gap: 8rem;
+      margin: 8rem 0;
+      background: #181818;
+      padding: 5rem 6rem;
+      border-radius: 2.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.4s ease;
+    }
+
+    .skills-main-div:hover {
+      border-color: rgba(23, 249, 23, 0.3);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(23, 249, 23, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .skills-main-div.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .skills-image-div {
+      flex: 0 0 35%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skills-icon-badge {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #212121;
+      border: 3px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 35px rgba(23, 249, 23, 0.25);
+      transition: all 0.4s ease;
+    }
+
+    .skills-main-div:hover .skills-icon-badge {
+      transform: scale(1.08) rotate(5deg);
+      box-shadow: 0 0 50px rgba(23, 249, 23, 0.45);
+    }
+
+    .skills-text-div {
+      flex: 1;
+    }
+
+    .skills-heading {
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .skills-heading i {
+      color: var(--green);
+    }
+
+    .skills-text {
+      font-size: 1.8rem;
+      color: #cbd5e1;
+      margin: 1.4rem 0;
+      line-height: 1.7;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .skills-text span.lightning {
+      color: #facc15;
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .software-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .software-skill-pill {
+      background: #212121;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .software-skill-pill i {
+      color: var(--green);
+    }
+
+    /* Projects Section (Classic Folder Cards) */
+    section#project {
+      margin-top: 16rem;
+    }
+
+    .projects-header {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+
+    .projects-header h1 {
+      font-size: 4.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -1px;
+    }
+    .projects-header h1 span {
+      color: var(--green);
+    }
+
+    .projects-header p {
+      font-size: 1.8rem;
+      color: #94a3b8;
+      margin-top: 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 3rem;
+    }
+
+    .project-card {
+      background: #212121;
+      border-radius: 1.6rem;
+      padding: 3rem 2.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.35s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--green);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(23, 249, 23, 0.2);
+    }
+
+    .project-card.featured-card {
+      border: 1.5px solid rgba(23, 249, 23, 0.5);
+      background: linear-gradient(180deg, #262626 0%, #1e1e1e 100%);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.4rem;
+    }
+
+    .project-top .folder-icon {
+      font-size: 3.6rem;
+      color: var(--green);
+    }
+
+    .project-top .project-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .project-top .project-links a {
+      color: #cbd5e1;
+      font-size: 2.2rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .project-top .project-links a:hover {
+      color: var(--green);
+      transform: scale(1.15);
+    }
+
+    .project-body h3 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.4rem;
+      line-height: 1.3;
+    }
+
+    .project-body p {
+      font-size: 1.55rem;
+      color: #94a3b8;
+      line-height: 1.7;
+      margin-bottom: 2.4rem;
+    }
+
+    .project-actions {
+      margin-bottom: 2rem;
+    }
+
+    .btn-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(23, 249, 23, 0.1);
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 0.8rem 1.6rem;
+      border-radius: 0.8rem;
+      font-size: 1.35rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-preview:hover {
+      background: var(--green);
+      color: #050801;
+      box-shadow: 0 0 15px rgba(23, 249, 23, 0.4);
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding-top: 1.6rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tech-list li {
+      font-size: 1.25rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* Contact Section */
+    section#contact {
+      margin-top: 16rem;
+    }
+
+    section#contact header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    section#contact header h2 {
+      font-size: 4.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -1px;
+    }
+    section#contact header h2 span {
+      color: var(--green);
+    }
+
+    section#contact header p {
+      font-size: 1.8rem;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 0.8rem;
+    }
+
+    .contacts {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .btn-two {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.6rem;
+      background-color: var(--green);
+      padding: 1.6rem 3.2rem;
+      border-radius: 1.4rem;
+      min-width: 320px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(23, 249, 23, 0.25);
+    }
+
+    .btn-two i {
+      font-size: 2.8rem;
+      color: #050801;
+      transition: color 0.3s;
+    }
+
+    .btn-two a, .btn-two span {
+      color: #050801;
+      font-size: 1.7rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-two:hover {
+      background-color: var(--pink);
+      box-shadow: 0 10px 30px rgba(227, 31, 113, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .btn-two:hover i, .btn-two:hover a, .btn-two:hover span {
+      color: #ffffff;
+    }
+
+    /* Contact Form & Signature Animated Button */
+    .contact-form-container {
+      margin-top: 3rem;
+      display: grid;
+      place-items: center;
+    }
+
+    .contact-form-container h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.4rem;
+      color: #ffffff;
+    }
+
+    form.contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.8rem;
+      width: 100%;
+      max-width: 65rem;
+    }
+
+    form.contact-form input,
+    form.contact-form textarea {
+      width: 100%;
+      padding: 1.4rem 2.2rem;
+      border-radius: 1.4rem;
+      outline: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: #181818;
+      color: #ffffff;
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    form.contact-form input:focus,
+    form.contact-form textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 15px rgba(23, 249, 23, 0.25);
+    }
+
+    form.contact-form input::placeholder,
+    form.contact-form textarea::placeholder {
+      color: #94a3b8;
+    }
+
+    form.contact-form textarea {
+      height: 18rem;
+      resize: vertical;
+    }
+
+    /* THE SIGNATURE .second-cta ANIMATED BUTTON */
+    .second-cta {
+      color: #17f917;
+      display: inline-block;
+      letter-spacing: 4px;
+      margin: 30px 0;
+      overflow: hidden;
+      padding: 20px 40px;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.5s;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .second-cta:hover {
+      background: #17f917;
+      box-shadow: 0 0 5px #17f917, 0 0 25px #17f917, 0 0 50px #17f917, 0 0 70px #17f917;
+      color: #050801;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    }
+
+    .second-cta span {
+      display: block;
+      position: absolute;
+    }
+
+    .second-cta span:first-child {
+      -webkit-animation: animate1 1s linear infinite;
+      animation: animate1 1s linear infinite;
+      background: linear-gradient(90deg, transparent, #17f917);
+      height: 2px;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    @keyframes animate1 {
+      0% { left: -100%; }
+      50%, 100% { left: 100%; }
+    }
+
+    .second-cta span:nth-child(2) {
+      -webkit-animation: animate2 1s linear infinite;
+      animation: animate2 1s linear infinite;
+      -webkit-animation-delay: 0.25s;
+      animation-delay: 0.25s;
+      background: linear-gradient(180deg, transparent, #17f917);
+      height: 100%;
+      right: 0;
+      top: -100%;
+      width: 2px;
+    }
+    @keyframes animate2 {
+      0% { top: -100%; }
+      50%, 100% { top: 100%; }
+    }
+
+    .second-cta span:nth-child(3) {
+      -webkit-animation: animate3 1s linear infinite;
+      animation: animate3 1s linear infinite;
+      -webkit-animation-delay: 0.5s;
+      animation-delay: 0.5s;
+      background: linear-gradient(270deg, transparent, #17f917);
+      bottom: 0;
+      height: 2px;
+      right: 0;
+      width: 100%;
+    }
+    @keyframes animate3 {
+      0% { right: -100%; }
+      50%, 100% { right: 100%; }
+    }
+
+    .second-cta span:nth-child(4) {
+      -webkit-animation: animate4 1s linear infinite;
+      animation: animate4 1s linear infinite;
+      -webkit-animation-delay: 0.75s;
+      animation-delay: 0.75s;
+      background: linear-gradient(360deg, transparent, #17f917);
+      bottom: -100%;
+      height: 100%;
+      left: 0;
+      width: 2px;
+    }
+    @keyframes animate4 {
+      0% { bottom: -100%; }
+      50%, 100% { bottom: 100%; }
+    }
+
+    /* Footer */
+    footer.footer {
+      background-color: #2b2b2b;
+      padding: 4rem 10rem;
+      margin-top: 14rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    footer.footer p {
+      letter-spacing: 0.15rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #cbd5e1;
+    }
+
+    footer.footer .social-media {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    footer.footer .social-media a {
+      color: #ffffff;
+      font-size: 2.4rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    footer.footer .social-media a:hover {
+      color: var(--green);
+      transform: translateY(-3px);
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 3rem;
+      right: 3rem;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background: #212121;
+      border: 2px solid var(--green);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(23, 249, 23, 0.3);
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--green);
+      color: #050801;
+      transform: translateY(-4px);
+    }
+
+    /* Modal Gallery */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: none;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      display: grid;
+    }
+
+    .modal-content {
+      background: #181818;
+      border: 1px solid rgba(23, 249, 23, 0.4);
+      border-radius: 2rem;
+      max-width: 900px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 0 50px rgba(23, 249, 23, 0.2);
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 1100px) {
+      header.header-fixed,
+      main.main-container,
+      footer.footer {
+        padding-left: 5rem;
+        padding-right: 5rem;
+      }
+    }
+
+    @media (max-width: 960px) {
+      header.header-fixed {
+        padding: 1.8rem 3rem;
+      }
+
+      .menu-container, .menu {
+        display: block;
+      }
+
+      nav {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(18, 18, 18, 0.98);
+        backdrop-filter: blur(16px);
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 999;
+      }
+
+      nav.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      nav a {
+        font-size: 2.2rem;
+      }
+
+      section#home {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 14rem;
+        gap: 4rem;
+      }
+
+      .hero-text p.greeting {
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 4.8rem;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-image {
+        margin-top: 2rem;
+      }
+      .hero-image .img-wrapper {
+        width: 280px;
+        height: 280px;
+      }
+
+      section#about {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 4rem;
+      }
+
+      .hard-skills {
+        justify-content: center;
+      }
+
+      .skills-main-div {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 4rem 3rem;
+      }
+
+      .skills-main-div.reverse {
+        flex-direction: column;
+      }
+
+      .skills-image-div {
+        width: 100%;
+      }
+
+      .skills-text-div {
+        width: 100%;
+      }
+
+      .skills-heading {
+        justify-content: center;
+        font-size: 2.8rem;
+      }
+
+      .contacts {
+        flex-direction: column;
+      }
+
+      .btn-two {
+        width: 100%;
+        min-width: auto;
+      }
+
+      footer.footer {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header.header-fixed,
+      main.main-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .hero-text h1 {
+        font-size: 3.8rem;
+      }
+      .hero-text h3 {
+        font-size: 2rem;
+      }
+      .skills-header, .projects-header h1, section#contact header h2 {
+        font-size: 3.6rem;
+      }
+      form.contact-form input,
+      form.contact-form textarea {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========================================================================= -->
+  <!-- 1. FIXED HEADER / NAVBAR                                                  -->
+  <!-- ========================================================================= -->
+  <header class="header-fixed">
+    <a href="#home" class="logo">
+      <span class="green">&lt;</span>
+      <span>Ahmed.Abdo</span>
+      <span class="green">/&gt;</span>
+    </a>
+
+    <nav id="navbar-links">
+      <a href="#home" class="nav-item">Home</a>
+      <a href="#about" class="nav-item">About me</a>
+      <a href="#skills" class="nav-item">What I Do</a>
+      <a href="#project" class="nav-item">Project</a>
+      <a href="#contact" class="nav-item">Contact</a>
+      <a href="assests/Ahmed Mohamed Abdo - CV 61.pdf" target="_blank" download class="button nav-item" style="color: #050801;">
+        <i class="fa-solid fa-file-pdf"></i>
+        <span>CV / Resume</span>
+      </a>
+    </nav>
+
+    <div class="menu-container" id="menu-btn" aria-label="Toggle navigation">
+      <div class="menu" id="menu-icon"></div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- BACKGROUND PARTICLE NETWORK CANVAS                                        -->
+  <!-- ========================================================================= -->
+  <canvas id="tsparticles"></canvas>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTENT CONTAINER                                                    -->
+  <!-- ========================================================================= -->
+  <main class="main-container">
+
+    <!-- ======================================================================= -->
+    <!-- 2. HERO SECTION (#home)                                                 -->
+    <!-- ======================================================================= -->
+    <section id="home">
+      <div class="hero-text">
+        <p class="greeting">
+          <span>Hello</span>
+          <span class="inline-block animate-bounce text-3xl">👋</span>
+          <span>, I'm</span>
+        </p>
+
+        <h1>Ahmed Mohamed Abdo</h1>
+        <h3>Flutter Developer | Front-End &amp; WordPress Developer</h3>
+
+        <p class="small-resume">
+          Computer Science &amp; Artificial Intelligence student at South Valley National University (SVNU), Egypt. 
+          Dedicated to engineering scalable mobile applications with Clean Architecture and algorithmic problem solving in C++.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="button">
+            <span>Contact</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="assests/Ahmed Mohamed Abdo - CV 61.pdf" target="_blank" download class="button" style="background: transparent; color: var(--green); border: 2px solid var(--green); box-shadow: 0 0 15px rgba(23, 249, 23, 0.15);">
+            <span>Download CV</span>
+            <i class="fa-solid fa-download"></i>
+          </a>
+
+          <div class="social-media">
+            <a href="https://linkedin.com/in/ahmd-mhmd-abdo" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/a7mdabdoo" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" title="Codeforces @a7md3bdo" aria-label="Codeforces">
+              <i class="fa-solid fa-code"></i>
+            </a>
+            <a href="https://wa.me/201118115131" target="_blank" rel="noopener noreferrer" title="WhatsApp Direct" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="mailto:ahmed@mohamed-abdo.com" title="Direct Email" aria-label="Email">
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="img-wrapper">
+          <img src="assests/profile.jpg" alt="Ahmed Mohamed Abdo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 3. ABOUT ME SECTION (#about)                                            -->
+    <!-- ======================================================================= -->
+    <section id="about">
+      <div class="about-image">
+        <div class="img-card">
+          <img src="assests/profile.jpg" alt="Ahmed Mohamed Abdo profile" />
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h2>About me</h2>
+
+        <p>
+          I'm a passionate <strong>Flutter Developer</strong> and software engineer currently pursuing my degree in 
+          <strong>Computer Science &amp; Artificial Intelligence</strong> at South Valley National University (SVNU), Qena, Egypt.
+        </p>
+        <p>
+          My engineering approach unites rigorous computer science theory with production-grade execution: building cross-platform mobile apps 
+          with <strong>Clean Architecture</strong>, modular BLoC/Cubit state management, offline-first caching, and high-performance algorithms.
+        </p>
+        <p>
+          Beyond mobile, I specialize in custom <strong>WordPress</strong> solutions—having built and deployed complete platforms like 
+          <a href="https://alfjracademy.com" target="_blank" class="text-[var(--green)] underline font-semibold">Alfjr Academy (أكاديمية الفجر)</a>—and 
+          active competitive programming in <strong>C++</strong> on Codeforces with 500+ solved problems.
+        </p>
+
+        <h3>Here are my main skills:</h3>
+
+        <div class="hard-skills">
+          <div class="hability" title="Flutter Framework">
+            <i class="fa-solid fa-mobile-screen-button text-[#02569B]"></i>
+            <span>Flutter</span>
+          </div>
+          <div class="hability" title="Dart Language">
+            <i class="fa-solid fa-code text-[#0175C2]"></i>
+            <span>Dart</span>
+          </div>
+          <div class="hability" title="C++ Problem Solving">
+            <i class="fa-solid fa-laptop-code text-[#00599C]"></i>
+            <span>C++</span>
+          </div>
+          <div class="hability" title="WordPress & WooCommerce">
+            <i class="fa-brands fa-wordpress text-[#21759B]"></i>
+            <span>WordPress</span>
+          </div>
+          <div class="hability" title="HTML5 & Semantic Markup">
+            <i class="fa-brands fa-html5 text-[#E34F26]"></i>
+            <span>HTML5</span>
+          </div>
+          <div class="hability" title="CSS3 & Tailwind CSS">
+            <i class="fa-brands fa-css3-alt text-[#1572B6]"></i>
+            <span>CSS3</span>
+          </div>
+          <div class="hability" title="JavaScript Modern ES6+">
+            <i class="fa-brands fa-js text-[#F7DF1E]"></i>
+            <span>JavaScript</span>
+          </div>
+          <div class="hability" title="Firebase Backend Services">
+            <i class="fa-solid fa-fire text-[#FFCA28]"></i>
+            <span>Firebase</span>
+          </div>
+          <div class="hability" title="Git & GitHub Version Control">
+            <i class="fa-brands fa-git-alt text-[#F05032]"></i>
+            <span>Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 4. WHAT I DO SECTION (#skills)                                          -->
+    <!-- ======================================================================= -->
+    <section id="skills">
+      <h1 class="skills-header">What <span>I Do?</span></h1>
+
+      <!-- Block 1: Front End & Mobile Development -->
+      <div class="skills-main-div">
+        <div class="skills-image-div">
+          <div class="skills-icon-badge">
+            <i class="fa-solid fa-mobile-screen text-7xl text-[var(--green)]"></i>
+          </div>
+        </div>
+        <div class="skills-text-div">
+          <h2 class="skills-heading">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Mobile App &amp; Front-End Development</span>
+          </h2>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Building high-performance, cross-platform Android &amp; iOS mobile apps using Flutter &amp; Dart.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Implementing Clean Architecture (Data, Domain, Presentation) with BLoC and Cubit for scalable state management.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Integration of offline-first caching (Hive NoSQL), background audio services, REST APIs via Dio, and responsive UIs.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Smooth 60/120 FPS animations, clean code standards, and production release to stores such as APKPure.</span>
+          </p>
+          <div class="software-skills">
+            <span class="software-skill-pill"><i class="fa-brands fa-flutter"></i> Flutter</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-code"></i> Dart</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-cubes"></i> BLoC / Cubit</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-database"></i> Hive NoSQL</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-cloud"></i> REST APIs (Dio)</span>
+            <span class="software-skill-pill"><i class="fa-brands fa-android"></i> Android SDK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 2: Competitive Programming & C++ -->
+      <div class="skills-main-div reverse">
+        <div class="skills-image-div">
+          <div class="skills-icon-badge">
+            <i class="fa-solid fa-brain text-7xl text-[var(--green)]"></i>
+          </div>
+        </div>
+        <div class="skills-text-div">
+          <h2 class="skills-heading">
+            <i class="fa-solid fa-terminal"></i>
+            <span>Competitive Programming &amp; Algorithmic C++</span>
+          </h2>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Active problem solver on Codeforces (<a href="https://codeforces.com/profile/a7md3bdo" target="_blank" class="text-[var(--green)] underline">@a7md3bdo</a>) with 500+ solved algorithmic challenges.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Deep mastery of Data Structures: Segment Trees, Disjoint Set Union (DSU), Trees, Graphs, and Hash Maps.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Algorithmic paradigms: Dynamic Programming, Graph Traversal (BFS/DFS, Dijkstra), Greedy algorithms, and Number Theory.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Obsession with asymptotic efficiency: writing optimal \(\mathcal{O}(N \log N)\) code, memory management, and bug-free logic.</span>
+          </p>
+          <div class="software-skills">
+            <span class="software-skill-pill"><i class="fa-solid fa-c"></i> C++20</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-diagram-project"></i> Data Structures</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-microchip"></i> Algorithms</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-trophy"></i> Codeforces</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-bolt"></i> Time Complexity</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: WordPress & Web Solutions -->
+      <div class="skills-main-div">
+        <div class="skills-image-div">
+          <div class="skills-icon-badge">
+            <i class="fa-brands fa-wordpress text-7xl text-[var(--green)]"></i>
+          </div>
+        </div>
+        <div class="skills-text-div">
+          <h2 class="skills-heading">
+            <i class="fa-solid fa-globe"></i>
+            <span>WordPress Development &amp; Web Platforms</span>
+          </h2>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Full-cycle custom WordPress development, theme customization, and educational academy architectures.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>Architected and launched <a href="https://alfjracademy.com" target="_blank" class="text-[var(--green)] underline font-semibold">Alfjr Academy (أكاديمية الفجر)</a>: a fully operational e-learning academy.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>WooCommerce e-commerce store implementation, custom payment gateways, LMS setups, and student portals.</span>
+          </p>
+          <p class="skills-text">
+            <span class="lightning">⚡</span>
+            <span>On-page SEO optimization, responsive layout precision, caching, CDN delivery, and page speed tuning.</span>
+          </p>
+          <div class="software-skills">
+            <span class="software-skill-pill"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-cart-shopping"></i> WooCommerce</span>
+            <span class="software-skill-pill"><i class="fa-brands fa-php"></i> PHP</span>
+            <span class="software-skill-pill"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
+            <span class="software-skill-pill"><i class="fa-solid fa-magnifying-glass-chart"></i> Technical SEO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 5. PROJECTS SECTION (#project)                                          -->
+    <!-- ======================================================================= -->
+    <section id="project">
+      <div class="projects-header">
+        <h1>Featured <span>Projects</span></h1>
+        <p>A selection of production-ready mobile apps, live web portals, and software engineering work.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Card 1: Al-Minshawi Quran Recitations App (STAR PROJECT) -->
+        <div class="project-card featured-card">
+          <div>
+            <div class="project-top">
+              <i class="fa-regular fa-folder folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" rel="noopener noreferrer" title="Download on APKPure" aria-label="APKPure">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="mb-4">
+                <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Production Mobile App</span>
+                <h3 class="!mb-0 text-2xl font-bold">جامع تلاوات المنشاوي (Al-Minshawi App)</h3>
+              </div>
+
+              <p>
+                A high-performance Flutter Quran audio application dedicated to Sheikh Mohamed Siddiq El-Minshawi. 
+                Features seamless background audio playback (audio_service), precision A-B repeat looping, offline-first caching via Hive NoSQL, 
+                and Clean Architecture with Cubit.
+              </p>
+
+              <div class="project-actions">
+                <button type="button" class="btn-preview" onclick="openScreenshotsModal()">
+                  <i class="fa-solid fa-images"></i>
+                  <span>Browse App Screenshots (5)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <ul class="tech-list">
+            <li>Flutter</li>
+            <li>Dart</li>
+            <li>Clean Arch</li>
+            <li>Cubit</li>
+            <li>Hive NoSQL</li>
+            <li>audio_service</li>
+            <li>APKPure</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Alfjr Academy (أكاديمية الفجر) -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <i class="fa-regular fa-folder folder-icon"></i>
+              <div class="project-links">
+                <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" title="Visit Live Platform" aria-label="Live Demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Live E-Learning Portal</span>
+              <h3>Alfjr Academy (أكاديمية الفجر)</h3>
+              <p>
+                Full-scale educational platform deployed for real students. Built on custom WordPress architecture with WooCommerce integration, 
+                course dashboards, interactive assessments, high-speed caching, and complete on-page SEO optimization.
+              </p>
+
+              <div class="project-actions">
+                <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" class="btn-preview">
+                  <i class="fa-solid fa-globe"></i>
+                  <span>Visit alfjracademy.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <ul class="tech-list">
+            <li>WordPress</li>
+            <li>WooCommerce</li>
+            <li>PHP</li>
+            <li>CSS3</li>
+            <li>SEO</li>
+            <li>Payment Gateways</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Multi-Vendor E-Commerce Platform -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <i class="fa-regular fa-folder folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/a7mdabdoo" target="_blank" rel="noopener noreferrer" title="View on GitHub" aria-label="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Mobile Architecture</span>
+              <h3>Multi-Vendor E-Commerce App</h3>
+              <p>
+                Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering, 
+                dynamic cart state management with BLoC, authentication flow, and robust REST API data integration with Dio.
+              </p>
+            </div>
+          </div>
+
+          <ul class="tech-list">
+            <li>Flutter</li>
+            <li>BLoC</li>
+            <li>Clean Arch</li>
+            <li>Dio REST</li>
+            <li>Repository Pattern</li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Codeforces Algorithmic Problem Solving -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <i class="fa-regular fa-folder folder-icon"></i>
+              <div class="project-links">
+                <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" title="Visit Codeforces Profile" aria-label="Codeforces">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Competitive Programming</span>
+              <h3>Algorithms &amp; Problem Solving</h3>
+              <p>
+                Active competitive programming profile on Codeforces (<span class="text-[var(--green)] font-mono font-bold">@a7md3bdo</span>). 
+                Repository of 500+ solved algorithmic challenges in C++20 covering Graph Algorithms, Dynamic Programming, Segment Trees, and Number Theory.
+              </p>
+
+              <div class="project-actions">
+                <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" class="btn-preview">
+                  <i class="fa-solid fa-code"></i>
+                  <span>View Codeforces Profile</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <ul class="tech-list">
+            <li>C++20</li>
+            <li>Algorithms</li>
+            <li>Data Structures</li>
+            <li>Graph Theory</li>
+            <li>DP</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 6. CONTACT SECTION (#contact)                                           -->
+    <!-- ======================================================================= -->
+    <section id="contact">
+      <header>
+        <h2>Get In <span>Touch</span></h2>
+        <p>Ready to get started on your project?</p>
+        <p class="!text-slate-300 !font-normal !text-base mt-2">Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.</p>
+      </header>
+
+      <!-- Direct Contact Cards -->
+      <div class="contacts">
+        <div class="btn-two">
+          <i class="fa-regular fa-envelope"></i>
+          <a href="mailto:ahmed@mohamed-abdo.com">ahmed@mohamed-abdo.com</a>
+        </div>
+
+        <div class="btn-two">
+          <i class="fa-brands fa-whatsapp"></i>
+          <a href="https://wa.me/201118115131" target="_blank" rel="noopener noreferrer">(+20) 111 811 5131</a>
+        </div>
+
+        <div class="btn-two">
+          <i class="fa-solid fa-code"></i>
+          <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer">Codeforces: a7md3bdo</a>
+        </div>
+
+        <div class="btn-two">
+          <i class="fa-solid fa-file-pdf"></i>
+          <a href="assests/Ahmed Mohamed Abdo - CV 61.pdf" target="_blank" download>Download CV (PDF)</a>
+        </div>
+      </div>
+
+      <!-- Contact Form with Signature Animated Border Button -->
+      <div class="contact-form-container">
+        <h2>Send a message to get started</h2>
+
+        <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+          <input type="text" id="sender-name" name="name" placeholder="Your Name" required />
+          <input type="email" id="sender-email" name="email" placeholder="Your Email Address" required />
+          <textarea id="sender-message" name="message" placeholder="Send a message to get started..." required></textarea>
+
+          <!-- THE SIGNATURE .second-cta ANIMATED BUTTON -->
+          <button type="submit" class="second-cta" id="submit-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Get in Touch
+          </button>
+        </form>
+
+        <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl text-center font-semibold text-lg text-[var(--green)] bg-[#212121] border border-[var(--green)]/30">
+          <i class="fa-solid fa-check-circle mr-2"></i>
+          <span>Thank you! Your message has been prepared. Opening your email client...</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 7. FOOTER                                                                 -->
+  <!-- ========================================================================= -->
+  <footer class="footer">
+    <a href="#home" class="logo">
+      <span class="green">&lt;</span>
+      <span>Ahmed.Abdo</span>
+      <span class="green">/&gt;</span>
+    </a>
+
+    <p>
+      <span>This website was made with</span>
+      <i class="fa-solid fa-heart text-red-500 animate-pulse text-xl"></i>
+      <span>by Ahmed Mohamed Abdo</span>
+    </p>
+
+    <div class="social-media">
+      <a href="https://linkedin.com/in/ahmd-mhmd-abdo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/a7mdabdoo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" aria-label="Codeforces">
+        <i class="fa-solid fa-code"></i>
+      </a>
+      <a href="https://wa.me/201118115131" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+      <a href="mailto:ahmed@mohamed-abdo.com" aria-label="Email">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- SCROLL TO TOP BUTTON                                                      -->
+  <!-- ========================================================================= -->
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to Top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ========================================================================= -->
+  <!-- SCREENSHOT LIGHTBOX MODAL (AL-MINSHAWI APP)                               -->
+  <!-- ========================================================================= -->
+  <div class="modal-overlay" id="screenshotModal" onclick="closeScreenshotsModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[var(--green)]/10 border border-[var(--green)]/30 flex items-center justify-center text-[var(--green)] text-xl">
+            <i class="fa-solid fa-book-quran"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">جامع تلاوات المنشاوي - Screenshots</h3>
+            <p class="text-xs text-[var(--green)]">Production Flutter Mobile Application</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeModalDirect()" class="text-slate-400 hover:text-white text-2xl p-2 focus:outline-none">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Main Viewer Frame -->
+      <div class="relative flex items-center justify-center bg-black/60 rounded-xl p-4 min-h-[460px] overflow-hidden">
+        <button type="button" onclick="prevScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <img id="activeScreenshotImg" src="assests/screenshot_1.png" alt="App Screenshot" class="max-h-[500px] w-auto rounded-xl shadow-2xl object-contain transition-all duration-300" />
+
+        <button type="button" onclick="nextScreenshot()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Thumbnails Selector -->
+      <div class="flex items-center justify-center gap-3 mt-4 overflow-x-auto py-2">
+        <img src="assests/screenshot_1.png" alt="Thumb 1" onclick="setScreenshot(1)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-[var(--green)] scale-105 thumb-item" id="thumb-1" />
+        <img src="assests/screenshot_2.png" alt="Thumb 2" onclick="setScreenshot(2)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] thumb-item" id="thumb-2" />
+        <img src="assests/screenshot_3.png" alt="Thumb 3" onclick="setScreenshot(3)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] thumb-item" id="thumb-3" />
+        <img src="assests/screenshot_4.png" alt="Thumb 4" onclick="setScreenshot(4)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] thumb-item" id="thumb-4" />
+        <img src="assests/screenshot_5.png" alt="Thumb 5" onclick="setScreenshot(5)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] thumb-item" id="thumb-5" />
+      </div>
+
+      <div class="flex items-center justify-between pt-3 text-xs text-slate-400">
+        <span id="screenCounter">Screenshot 1 of 5</span>
+        <div class="flex items-center gap-4">
+          <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" class="text-[var(--green)] hover:underline flex items-center gap-1">
+            <i class="fa-solid fa-download"></i> Download APKPure
+          </a>
+          <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1">
+            <i class="fa-brands fa-github"></i> Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: PARTICLE ENGINE & INTERACTIONS                                -->
+  <!-- ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. Mobile Menu Toggle
+    // -------------------------------------------------------------------------
+    const menuBtn = document.getElementById('menu-btn');
+    const menuIcon = document.getElementById('menu-icon');
+    const navbarLinks = document.getElementById('navbar-links');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    menuBtn.addEventListener('click', () => {
+      menuIcon.classList.toggle('active');
+      navbarLinks.classList.toggle('active');
+      document.body.style.overflow = navbarLinks.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        menuIcon.classList.remove('active');
+        navbarLinks.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+
+    // -------------------------------------------------------------------------
+    // 2. Scroll-to-Top Button
+    // -------------------------------------------------------------------------
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. Contact Form Submission Handler
+    // -------------------------------------------------------------------------
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('sender-name').value;
+      const email = document.getElementById('sender-email').value;
+      const message = document.getElementById('sender-message').value;
+
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+      const feedback = document.getElementById('form-feedback');
+      feedback.classList.remove('hidden');
+
+      setTimeout(() => {
+        window.location.href = `mailto:ahmed@mohamed-abdo.com?subject=${subject}&body=${body}`;
+      }, 700);
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. Screenshots Lightbox Modal
+    // -------------------------------------------------------------------------
+    let currentScreenshotIdx = 1;
+    const totalScreenshots = 5;
+
+    function openScreenshotsModal() {
+      setScreenshot(1);
+      document.getElementById('screenshotModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModalDirect() {
+      document.getElementById('screenshotModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeScreenshotsModal(e) {
+      if (e.target.id === 'screenshotModal') {
+        closeModalDirect();
+      }
+    }
+
+    function setScreenshot(index) {
+      currentScreenshotIdx = index;
+      const img = document.getElementById('activeScreenshotImg');
+      img.src = `assests/screenshot_${index}.png`;
+      document.getElementById('screenCounter').textContent = `Screenshot ${index} of ${totalScreenshots}`;
+
+      document.querySelectorAll('.thumb-item').forEach((thumb, idx) => {
+        if (idx + 1 === index) {
+          thumb.classList.add('border-[var(--green)]', 'scale-105');
+          thumb.classList.remove('border-white/20');
+        } else {
+          thumb.classList.remove('border-[var(--green)]', 'scale-105');
+          thumb.classList.add('border-white/20');
+        }
+      });
+    }
+
+    function nextScreenshot() {
+      let next = currentScreenshotIdx + 1;
+      if (next > totalScreenshots) next = 1;
+      setScreenshot(next);
+    }
+
+    function prevScreenshot() {
+      let prev = currentScreenshotIdx - 1;
+      if (prev < 1) prev = totalScreenshots;
+      setScreenshot(prev);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('screenshotModal');
+      if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeModalDirect();
+        if (e.key === 'ArrowRight') nextScreenshot();
+        if (e.key === 'ArrowLeft') prevScreenshot();
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // 5. High-Performance Particle Canvas Engine (Matching Ahmed Gamal's tsParticles)
+    // -------------------------------------------------------------------------
+    (function initParticles() {
+      const canvas = document.getElementById('tsparticles');
+      const ctx = canvas.getContext('2d');
+
+      let width, height;
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const particles = [];
+      const particleCount = Math.floor(Math.min(window.innerWidth / 25, 45));
+
+      const mouse = {
+        x: null,
+        y: null,
+        radius: 140
+      };
+
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 1.2;
+          this.vy = (Math.random() - 0.5) * 1.2;
+          this.radius = Math.random() * 2 + 1;
+          this.color = Math.random() > 0.4 ? '#17f917' : '#ffffff';
+          this.baseAlpha = Math.random() * 0.4 + 0.2;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0) this.x = width;
+          if (this.x > width) this.x = 0;
+          if (this.y < 0) this.y = height;
+          if (this.y > height) this.y = 0;
+
+          // Mouse interaction (subtle push/pull)
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              const angle = Math.atan2(dy, dx);
+              this.x -= Math.cos(angle) * force * 2;
+              this.y -= Math.sin(angle) * force * 2;
+            }
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.globalAlpha = this.baseAlpha;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connecting lines between close particles
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 130) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = '#17f917';
+              ctx.globalAlpha = (1 - dist / 130) * 0.22;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw and update each particle
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    })();
+  </script>
+</body>
+</html>
