@@ -1459,6 +1459,24 @@
               </div>
             </div>
 
+            <div class="mb-5 overflow-hidden rounded-xl border border-white/10 group relative cursor-pointer" onclick="openScreenshotsModal(1)">
+              <img src="assests/feature_graphic.png" alt="جامع تلاوات المنشاوي" class="w-full h-44 sm:h-48 object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-between p-3 opacity-90 group-hover:opacity-100 transition-opacity">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-black/70 backdrop-blur border border-[var(--green)]/50 text-[var(--green)]">
+                  <i class="fa-solid fa-images"></i> 5 Screenshots
+                </span>
+                <span class="text-xs text-slate-300 font-medium">Click to Preview</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-5 overflow-x-auto py-1">
+              <img src="assests/screenshot_1.png" alt="الرئيسية ليلي" onclick="openScreenshotsModal(1)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="الرئيسية (الوضع الليلي)" />
+              <img src="assests/screenshot_2.png" alt="الرئيسية نهاري" onclick="openScreenshotsModal(2)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="الرئيسية (الوضع النهاري)" />
+              <img src="assests/screenshot_3.png" alt="مشغل التلاوات" onclick="openScreenshotsModal(3)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="مشغل التلاوات" />
+              <img src="assests/screenshot_4.png" alt="تكرار الحفظ A-B" onclick="openScreenshotsModal(4)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="تكرار الحفظ A-B" />
+              <img src="assests/screenshot_5.png" alt="قوائم التشغيل" onclick="openScreenshotsModal(5)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="قوائم التشغيل" />
+            </div>
+
             <div class="project-body">
               <div class="mb-4">
                 <span class="text-xs uppercase tracking-widest text-[var(--green)] font-bold block mb-1">Production Mobile App</span>
@@ -1471,11 +1489,15 @@
                 and Clean Architecture with Cubit.
               </p>
 
-              <div class="project-actions">
-                <button type="button" class="btn-preview" onclick="openScreenshotsModal()">
+              <div class="project-actions flex flex-wrap gap-3">
+                <button type="button" class="btn-preview" onclick="openScreenshotsModal(1)">
                   <i class="fa-solid fa-images"></i>
                   <span>Browse App Screenshots (5)</span>
                 </button>
+                <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" rel="noopener noreferrer" class="btn-preview">
+                  <i class="fa-solid fa-download"></i>
+                  <span>APKPure</span>
+                </a>
               </div>
             </div>
           </div>
@@ -1534,10 +1556,22 @@
             <div class="project-top">
               <i class="fa-regular fa-folder folder-icon"></i>
               <div class="project-links">
-                <a href="https://github.com/a7mdabdoo" target="_blank" rel="noopener noreferrer" title="View on GitHub" aria-label="GitHub">
+                <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
                   <i class="fa-brands fa-github"></i>
                 </a>
+                <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app/releases/latest" target="_blank" rel="noopener noreferrer" title="Download APK Release" aria-label="Download APK">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
               </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-5 overflow-x-auto py-1">
+              <img src="assests/ecommerce/01_home_dark.png" alt="Home Dark" onclick="openEcomModal(1)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="Home (Dark Mode)" />
+              <img src="assests/ecommerce/02_home_light.png" alt="Home Light" onclick="openEcomModal(2)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="Home (Light Mode)" />
+              <img src="assests/ecommerce/03_catalog_search.png" alt="Catalog Search" onclick="openEcomModal(3)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="Catalog Search" />
+              <img src="assests/ecommerce/04_vendors_directory.png" alt="Vendors Directory" onclick="openEcomModal(4)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="Vendors Directory" />
+              <img src="assests/ecommerce/05_cart_grouped.png" alt="Grouped Cart" onclick="openEcomModal(5)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="Grouped Cart" />
+              <img src="assests/ecommerce/06_order_success.png" alt="Order Success" onclick="openEcomModal(6)" class="w-14 h-24 object-cover rounded-md border border-white/10 hover:border-[var(--green)] hover:scale-105 transition-all cursor-pointer shadow-sm flex-shrink-0" title="Order Success" />
             </div>
 
             <div class="project-body">
@@ -1547,6 +1581,17 @@
                 Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering,
                 dynamic cart state management with BLoC, authentication flow, and robust REST API data integration with Dio.
               </p>
+
+              <div class="project-actions flex flex-wrap gap-3">
+                <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" class="btn-preview">
+                  <i class="fa-brands fa-github"></i>
+                  <span>View on GitHub</span>
+                </a>
+                <button type="button" class="btn-preview" onclick="openEcomModal(1)">
+                  <i class="fa-solid fa-images"></i>
+                  <span>Screenshots (6)</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -1728,12 +1773,61 @@
       </div>
 
       <div class="flex items-center justify-between pt-3 text-xs text-slate-400">
-        <span id="screenCounter">Screenshot 1 of 5</span>
+        <span id="screenCounter" class="text-slate-300 font-medium">Screenshot 1 of 5</span>
         <div class="flex items-center gap-4">
           <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" class="text-[var(--green)] hover:underline flex items-center gap-1">
             <i class="fa-solid fa-download"></i> Download APKPure
           </a>
           <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1">
+            <i class="fa-brands fa-github"></i> Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="ecomModal" onclick="closeEcomModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[var(--green)]/10 border border-[var(--green)]/30 flex items-center justify-center text-[var(--green)] text-xl">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Multi-Vendor E-Commerce - Screenshots</h3>
+            <p class="text-xs text-[var(--green)]">Production-Grade Clean Architecture App</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeEcomDirect()" class="text-slate-400 hover:text-white text-2xl p-2 focus:outline-none">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="relative flex items-center justify-center bg-black/60 rounded-xl p-4 min-h-[460px] overflow-hidden">
+        <button type="button" onclick="prevEcomScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <img id="activeEcomImg" src="assests/ecommerce/01_home_dark.png" alt="App Screenshot" class="max-h-[500px] w-auto rounded-xl shadow-2xl object-contain transition-all duration-300" />
+
+        <button type="button" onclick="nextEcomScreenshot()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-center gap-3 mt-4 overflow-x-auto py-2">
+        <img src="assests/ecommerce/01_home_dark.png" alt="Thumb 1" onclick="setEcomScreenshot(1)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-[var(--green)] scale-105 ecom-thumb-item" id="ecom-thumb-1" />
+        <img src="assests/ecommerce/02_home_light.png" alt="Thumb 2" onclick="setEcomScreenshot(2)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] ecom-thumb-item" id="ecom-thumb-2" />
+        <img src="assests/ecommerce/03_catalog_search.png" alt="Thumb 3" onclick="setEcomScreenshot(3)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] ecom-thumb-item" id="ecom-thumb-3" />
+        <img src="assests/ecommerce/04_vendors_directory.png" alt="Thumb 4" onclick="setEcomScreenshot(4)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] ecom-thumb-item" id="ecom-thumb-4" />
+        <img src="assests/ecommerce/05_cart_grouped.png" alt="Thumb 5" onclick="setEcomScreenshot(5)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] ecom-thumb-item" id="ecom-thumb-5" />
+        <img src="assests/ecommerce/06_order_success.png" alt="Thumb 6" onclick="setEcomScreenshot(6)" class="w-16 h-28 object-cover rounded-lg border-2 cursor-pointer transition-all border-white/20 hover:border-[var(--green)] ecom-thumb-item" id="ecom-thumb-6" />
+      </div>
+
+      <div class="flex items-center justify-between pt-3 text-xs text-slate-400">
+        <span id="ecomCounter" class="text-slate-300 font-medium">Screenshot 1 of 6</span>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" class="text-[var(--green)] hover:underline flex items-center gap-1">
             <i class="fa-brands fa-github"></i> Repository
           </a>
         </div>
@@ -1791,11 +1885,19 @@
         window.location.href = `mailto:ahmed@mohamed-abdo.com?subject=${subject}&body=${body}`;
       }, 700);
     }
+
     let currentScreenshotIdx = 1;
     const totalScreenshots = 5;
+    const minshawiCaptions = [
+      "الرئيسية (الوضع الليلي)",
+      "الرئيسية (الوضع النهاري)",
+      "مشغل التلاوات المتقدم",
+      "تكرار الحفظ (A-B Repeat)",
+      "قوائم التشغيل المخصصة"
+    ];
 
-    function openScreenshotsModal() {
-      setScreenshot(1);
+    function openScreenshotsModal(index = 1) {
+      setScreenshot(index);
       document.getElementById('screenshotModal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -1815,7 +1917,8 @@
       currentScreenshotIdx = index;
       const img = document.getElementById('activeScreenshotImg');
       img.src = `assests/screenshot_${index}.png`;
-      document.getElementById('screenCounter').textContent = `Screenshot ${index} of ${totalScreenshots}`;
+      const title = minshawiCaptions[index - 1] || `Screenshot ${index}`;
+      document.getElementById('screenCounter').textContent = `${title} (${index}/${totalScreenshots})`;
 
       document.querySelectorAll('.thumb-item').forEach((thumb, idx) => {
         if (idx + 1 === index) {
@@ -1840,12 +1943,84 @@
       setScreenshot(prev);
     }
 
+    let currentEcomIdx = 1;
+    const totalEcomScreens = 6;
+    const ecomFiles = [
+      'assests/ecommerce/01_home_dark.png',
+      'assests/ecommerce/02_home_light.png',
+      'assests/ecommerce/03_catalog_search.png',
+      'assests/ecommerce/04_vendors_directory.png',
+      'assests/ecommerce/05_cart_grouped.png',
+      'assests/ecommerce/06_order_success.png'
+    ];
+    const ecomCaptions = [
+      "Home & Featured Vendors (Dark Mode)",
+      "Home & Catalog (Light Material 3)",
+      "Live Search & Filter Catalog",
+      "Verified Vendor Storefront Directory",
+      "Vendor-Grouped Cart with Subtotals",
+      "Order Confirmation & Checkout Receipt"
+    ];
+
+    function openEcomModal(index = 1) {
+      setEcomScreenshot(index);
+      document.getElementById('ecomModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEcomDirect() {
+      document.getElementById('ecomModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeEcomModal(e) {
+      if (e.target.id === 'ecomModal') {
+        closeEcomDirect();
+      }
+    }
+
+    function setEcomScreenshot(index) {
+      currentEcomIdx = index;
+      const img = document.getElementById('activeEcomImg');
+      img.src = ecomFiles[index - 1];
+      const title = ecomCaptions[index - 1] || `Screenshot ${index}`;
+      document.getElementById('ecomCounter').textContent = `${title} (${index}/${totalEcomScreens})`;
+
+      document.querySelectorAll('.ecom-thumb-item').forEach((thumb, idx) => {
+        if (idx + 1 === index) {
+          thumb.classList.add('border-[var(--green)]', 'scale-105');
+          thumb.classList.remove('border-white/20');
+        } else {
+          thumb.classList.remove('border-[var(--green)]', 'scale-105');
+          thumb.classList.add('border-white/20');
+        }
+      });
+    }
+
+    function nextEcomScreenshot() {
+      let next = currentEcomIdx + 1;
+      if (next > totalEcomScreens) next = 1;
+      setEcomScreenshot(next);
+    }
+
+    function prevEcomScreenshot() {
+      let prev = currentEcomIdx - 1;
+      if (prev < 1) prev = totalEcomScreens;
+      setEcomScreenshot(prev);
+    }
+
     window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('screenshotModal');
-      if (modal.classList.contains('active')) {
+      if (modal && modal.classList.contains('active')) {
         if (e.key === 'Escape') closeModalDirect();
         if (e.key === 'ArrowRight') nextScreenshot();
         if (e.key === 'ArrowLeft') prevScreenshot();
+      }
+      const ecomModal = document.getElementById('ecomModal');
+      if (ecomModal && ecomModal.classList.contains('active')) {
+        if (e.key === 'Escape') closeEcomDirect();
+        if (e.key === 'ArrowRight') nextEcomScreenshot();
+        if (e.key === 'ArrowLeft') prevEcomScreenshot();
       }
     });
     (function initParticles() {
