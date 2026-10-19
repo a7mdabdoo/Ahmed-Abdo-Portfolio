@@ -313,7 +313,7 @@ const menuBtn = document.getElementById('menu-btn');
           this.vx = (Math.random() - 0.5) * 1.2;
           this.vy = (Math.random() - 0.5) * 1.2;
           this.radius = Math.random() * 2 + 1;
-          this.color = Math.random() > 0.4 ? '#17f917' : '#ffffff';
+          this.color = Math.random() > 0.4 ? '#1d63ed' : '#ffffff';
           this.baseAlpha = Math.random() * 0.4 + 0.2;
         }
 
@@ -364,7 +364,7 @@ const menuBtn = document.getElementById('menu-btn');
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = '#17f917';
+              ctx.strokeStyle = '#1d63ed';
               ctx.globalAlpha = (1 - dist / maxDist) * 0.22;
               ctx.lineWidth = 0.8;
               ctx.stroke();
