@@ -30,6 +30,11 @@
       if (localStorage.getItem('theme') === 'light') {
         document.documentElement.classList.add('light-theme');
       }
+      if (localStorage.getItem('lang') === 'ar') {
+        document.documentElement.setAttribute('lang', 'ar');
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.classList.add('rtl-mode');
+      }
     })();
   </script>
 
@@ -37,7 +42,10 @@
 </head>
 
 <body>
-  <script>if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');</script>
+  <script>
+    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
+    if (localStorage.getItem('lang') === 'ar') document.body.classList.add('rtl-mode');
+  </script>
 
   <header class="header-fixed">
     <a href="#home" class="logo">
@@ -47,18 +55,23 @@
     </a>
 
     <nav id="navbar-links">
-      <a href="#home" class="nav-item">Home</a>
-      <a href="#about" class="nav-item">About me</a>
-      <a href="#skills" class="nav-item">What I Do</a>
-      <a href="#project" class="nav-item">Project</a>
-      <a href="#contact" class="nav-item">Contact</a>
+      <a href="#home" class="nav-item" data-i18n="nav_home">Home</a>
+      <a href="#about" class="nav-item" data-i18n="nav_about">About me</a>
+      <a href="#skills" class="nav-item" data-i18n="nav_skills">What I Do</a>
+      <a href="#project" class="nav-item" data-i18n="nav_projects">Project</a>
+      <a href="#contact" class="nav-item" data-i18n="nav_contact">Contact</a>
       <a href="assests/Ahmed_Mohamed_Abdo_CV 62.pdf" target="_blank" download class="button nav-item" style="color: #ffffff;">
         <i class="fa-solid fa-file-pdf"></i>
-        <span>CV / Resume</span>
+        <span data-i18n="nav_cv">CV / Resume</span>
       </a>
     </nav>
 
     <div class="header-controls">
+      <button type="button" class="lang-toggle-btn" id="langToggleBtn" aria-label="Switch Language / تغيير اللغة" title="Switch Language / تغيير اللغة">
+        <i class="fa-solid fa-globe"></i>
+        <span class="lang-code" id="langCodeLabel">AR</span>
+      </button>
+
       <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light and Dark Mode" title="Toggle Light / Dark Mode">
         <i class="fa-solid fa-moon moon-icon"></i>
         <i class="fa-solid fa-sun sun-icon"></i>
@@ -82,31 +95,31 @@
     <section id="home">
       <div class="hero-text">
         <div class="hero-badge">
-          <span class="section-tag"><i class="fa-solid fa-code"></i> Software Engineer &amp; Mobile Specialist</span>
+          <span class="section-tag"><i class="fa-solid fa-code"></i> <span data-i18n="hero_badge">Software Engineer &amp; Mobile Specialist</span></span>
         </div>
 
         <p class="greeting">
-          <span>Hello</span>
+          <span data-i18n="hero_greeting_prefix">Hello</span>
           <span class="inline-block animate-bounce text-3xl">👋</span>
-          <span>, I'm</span>
+          <span data-i18n="hero_greeting_suffix">, I'm</span>
         </p>
 
-        <h1>Ahmed Mohamed Abdo</h1>
-        <h3>Flutter Developer | Front-End &amp; WordPress Developer</h3>
+        <h1 data-i18n="hero_name">Ahmed Mohamed Abdo</h1>
+        <h3 data-i18n="hero_subtitle">Flutter Developer | Front-End &amp; WordPress Developer</h3>
 
-        <p class="small-resume">
+        <p class="small-resume" data-i18n="hero_desc">
           Computer Science &amp; Artificial Intelligence student at South Valley National University (SVNU), Egypt.
           Dedicated to engineering scalable mobile applications with Clean Architecture and algorithmic problem solving in C++.
         </p>
 
         <div class="hero-actions">
           <a href="#contact" class="button">
-            <span>Contact</span>
+            <span data-i18n="hero_btn_contact">Contact</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
 
           <a href="assests/Ahmed_Mohamed_Abdo_CV 62.pdf" target="_blank" download class="button" style="background: transparent; color: var(--green); border: 2px solid var(--green); box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);">
-            <span>Download CV</span>
+            <span data-i18n="hero_btn_cv">Download CV</span>
             <i class="fa-solid fa-download"></i>
           </a>
 
@@ -135,7 +148,7 @@
           <img src="assests/profile.jpg" alt="Ahmed Mohamed Abdo" />
           <div class="hero-status-pill">
             <span class="status-dot"></span>
-            <span>Available for Tech Roles</span>
+            <span data-i18n="hero_status">Available for Tech Roles</span>
           </div>
         </div>
       </div>
@@ -143,49 +156,49 @@
 
     <section id="about">
       <div class="about-header">
-        <span class="section-tag"><i class="fa-regular fa-user"></i> About Me</span>
-        <h2 class="about-title">Building Scalable Mobile &amp; Web Systems With <span>Clean Architecture</span></h2>
+        <span class="section-tag"><i class="fa-regular fa-user"></i> <span data-i18n="about_badge">About Me</span></span>
+        <h2 class="about-title"><span data-i18n="about_title_1">Building Scalable Mobile &amp; Web Systems With </span><span data-i18n="about_title_2">Clean Architecture</span></h2>
       </div>
 
       <div class="about-clean-container">
         <p class="about-lead">
-          I'm a passionate <strong>Flutter Developer</strong> and software engineer currently pursuing my degree in
-          <strong>Computer Science &amp; Artificial Intelligence</strong> at South Valley National University (SVNU), Qena, Egypt.
+          <span data-i18n="about_lead_1">I'm a passionate </span><strong data-i18n="about_lead_2">Flutter Developer</strong><span data-i18n="about_lead_3"> and software engineer currently pursuing my degree in </span><strong data-i18n="about_lead_4">Computer Science &amp; Artificial Intelligence</strong><span data-i18n="about_lead_5"> at South Valley National University (SVNU), Qena, Egypt.</span>
         </p>
-        <p>
+        <p data-i18n="about_p2">
           My engineering philosophy merges rigorous computer science theory with production-grade execution: developing scalable cross-platform mobile apps with <strong>Clean Architecture</strong>, modular BLoC/Cubit state management, offline-first caching (Hive), and high-performance algorithms in C++.
         </p>
         <p>
-          Beyond mobile systems, I design and deploy full-stack <strong>WordPress platforms</strong>—most notably
+          <span data-i18n="about_p3_prefix">Beyond mobile systems, I design and deploy full-stack <strong>WordPress platforms</strong>—most notably </span>
           <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" class="text-[var(--green)] underline font-semibold hover:text-violet-400 transition-colors inline-flex items-center gap-1">
             <span>Alfjr Academy (أكاديمية الفجر)</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-          </a>—and actively solve algorithmic problems on Codeforces with <strong>500+ problems solved</strong>.
+          </a>
+          <span data-i18n="about_p3_suffix">—and actively solve algorithmic problems on Codeforces with <strong>500+ problems solved</strong>.</span>
         </p>
 
         <div class="about-metric-row">
           <div class="metric-pill">
             <i class="fa-solid fa-graduation-cap text-violet-400"></i>
-            <span><strong>SVNU</strong> Computer Science &amp; AI</span>
+            <span><strong>SVNU</strong> <span data-i18n="about_metric_1">Computer Science &amp; AI</span></span>
           </div>
           <div class="metric-pill">
             <i class="fa-solid fa-bolt text-yellow-400"></i>
-            <span><strong>500+</strong> Problems Solved (Codeforces C++)</span>
+            <span><strong>500+</strong> <span data-i18n="about_metric_2">Problems Solved (Codeforces C++)</span></span>
           </div>
           <div class="metric-pill">
             <i class="fa-solid fa-cubes text-blue-400"></i>
-            <span><strong>Clean Architecture</strong> &bull; BLoC / Cubit</span>
+            <span data-i18n="about_metric_3"><strong>Clean Architecture</strong> &bull; BLoC / Cubit</span>
           </div>
           <div class="metric-pill">
             <i class="fa-solid fa-rocket text-emerald-400"></i>
-            <span><strong>Production Deployments</strong> &bull; Alfjr &amp; APKPure</span>
+            <span data-i18n="about_metric_4"><strong>Production Deployments</strong> &bull; Alfjr &amp; APKPure</span>
           </div>
         </div>
 
         <div class="about-skills-block">
           <h3 class="skills-mini-heading">
             <i class="fa-solid fa-layer-group text-[var(--green)]"></i>
-            <span>Core Technical Stack &amp; Tools:</span>
+            <span data-i18n="about_skills_heading">Core Technical Stack &amp; Tools:</span>
           </h3>
           <div class="hard-skills">
             <div class="hability flutter" title="Flutter Framework">
@@ -231,8 +244,8 @@
 
     <section id="skills">
       <div class="text-center mb-6">
-        <span class="section-tag"><i class="fa-solid fa-layer-group"></i> My Capabilities</span>
-        <h1 class="skills-header !mb-0">What <span>I Do?</span></h1>
+        <span class="section-tag"><i class="fa-solid fa-layer-group"></i> <span data-i18n="skills_badge">My Capabilities</span></span>
+        <h1 class="skills-header !mb-0"><span data-i18n="skills_title_1">What </span><span data-i18n="skills_title_2">I Do?</span></h1>
       </div>
 
       <div class="skills-main-div">
@@ -244,23 +257,23 @@
         <div class="skills-text-div">
           <h2 class="skills-heading">
             <i class="fa-solid fa-layer-group"></i>
-            <span>Mobile App &amp; Front-End Development</span>
+            <span data-i18n="skills_card1_title">Mobile App &amp; Front-End Development</span>
           </h2>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Building high-performance, cross-platform Android &amp; iOS mobile apps using Flutter &amp; Dart.</span>
+            <span data-i18n="skills_card1_p1">Building high-performance, cross-platform Android &amp; iOS mobile apps using Flutter &amp; Dart.</span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Implementing Clean Architecture (Data, Domain, Presentation) with BLoC and Cubit for scalable state management.</span>
+            <span data-i18n="skills_card1_p2">Implementing Clean Architecture (Data, Domain, Presentation) with BLoC and Cubit for scalable state management.</span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Integration of offline-first caching (Hive NoSQL), background audio services, REST APIs via Dio, and responsive UIs.</span>
+            <span data-i18n="skills_card1_p3">Integration of offline-first caching (Hive NoSQL), background audio services, REST APIs via Dio, and responsive UIs.</span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Smooth 60/120 FPS animations, clean code standards, and production release to stores such as APKPure.</span>
+            <span data-i18n="skills_card1_p4">Smooth 60/120 FPS animations, clean code standards, and production release to stores such as APKPure.</span>
           </p>
           <div class="software-skills">
             <span class="software-skill-pill"><i class="fa-brands fa-flutter"></i> Flutter</span>
@@ -282,23 +295,23 @@
         <div class="skills-text-div">
           <h2 class="skills-heading">
             <i class="fa-solid fa-terminal"></i>
-            <span>Competitive Programming &amp; Algorithmic C++</span>
+            <span data-i18n="skills_card2_title">Competitive Programming &amp; Algorithmic C++</span>
           </h2>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Active problem solver on Codeforces (<a href="https://codeforces.com/profile/a7md3bdo" target="_blank" class="text-[var(--green)] underline">@a7md3bdo</a>) with 500+ solved algorithmic challenges.</span>
+            <span><span data-i18n="skills_card2_p1_prefix">Active problem solver on Codeforces (</span><a href="https://codeforces.com/profile/a7md3bdo" target="_blank" class="text-[var(--green)] underline">@a7md3bdo</a><span data-i18n="skills_card2_p1_suffix">) with 500+ solved algorithmic challenges.</span></span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Deep mastery of Data Structures: Segment Trees, Disjoint Set Union (DSU), Trees, Graphs, and Hash Maps.</span>
+            <span data-i18n="skills_card2_p2">Deep mastery of Data Structures: Segment Trees, Disjoint Set Union (DSU), Trees, Graphs, and Hash Maps.</span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Algorithmic paradigms: Dynamic Programming, Graph Traversal (BFS/DFS, Dijkstra), Greedy algorithms, and Number Theory.</span>
+            <span data-i18n="skills_card2_p3">Algorithmic paradigms: Dynamic Programming, Graph Traversal (BFS/DFS, Dijkstra), Greedy algorithms, and Number Theory.</span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Obsession with asymptotic efficiency: writing optimal \(\mathcal{O}(N \log N)\) code, memory management, and bug-free logic.</span>
+            <span data-i18n="skills_card2_p4">Obsession with asymptotic efficiency: writing optimal \(\mathcal{O}(N \log N)\) code, memory management, and bug-free logic.</span>
           </p>
           <div class="software-skills">
             <span class="software-skill-pill"><i class="fa-solid fa-c"></i> C++20</span>
@@ -319,23 +332,23 @@
         <div class="skills-text-div">
           <h2 class="skills-heading">
             <i class="fa-solid fa-globe"></i>
-            <span>WordPress Development &amp; Web Platforms</span>
+            <span data-i18n="skills_card3_title">WordPress Development &amp; Web Platforms</span>
           </h2>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Full-cycle custom WordPress development, theme customization, and educational academy architectures.</span>
+            <span data-i18n="skills_card3_p1">Full-cycle custom WordPress development, theme customization, and educational academy architectures.</span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>Architected and launched <a href="https://alfjracademy.com" target="_blank" class="text-[var(--green)] underline font-semibold">Alfjr Academy (أكاديمية الفجر)</a>: a fully operational e-learning academy.</span>
+            <span><span data-i18n="skills_card3_p2_prefix">Architected and launched </span><a href="https://alfjracademy.com" target="_blank" class="text-[var(--green)] underline font-semibold">Alfjr Academy (أكاديمية الفجر)</a><span data-i18n="skills_card3_p2_suffix">: a fully operational e-learning academy.</span></span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>WooCommerce e-commerce store implementation, custom payment gateways, LMS setups, and student portals.</span>
+            <span data-i18n="skills_card3_p3">WooCommerce e-commerce store implementation, custom payment gateways, LMS setups, and student portals.</span>
           </p>
           <p class="skills-text">
             <span class="lightning">⚡</span>
-            <span>On-page SEO optimization, responsive layout precision, caching, CDN delivery, and page speed tuning.</span>
+            <span data-i18n="skills_card3_p4">On-page SEO optimization, responsive layout precision, caching, CDN delivery, and page speed tuning.</span>
           </p>
           <div class="software-skills">
             <span class="software-skill-pill"><i class="fa-brands fa-wordpress"></i> WordPress</span>
@@ -350,9 +363,9 @@
 
     <section id="project">
       <div class="projects-header">
-        <span class="section-tag"><i class="fa-solid fa-cubes"></i> Featured Portfolio</span>
-        <h1>Featured <span>Projects</span></h1>
-        <p>A selection of production-ready mobile apps, live web portals, and software engineering work.</p>
+        <span class="section-tag"><i class="fa-solid fa-cubes"></i> <span data-i18n="projects_badge">Featured Portfolio</span></span>
+        <h1><span data-i18n="projects_title_1">Featured </span><span data-i18n="projects_title_2">Projects</span></h1>
+        <p data-i18n="projects_subtitle">A selection of production-ready mobile apps, live web portals, and software engineering work.</p>
       </div>
 
       <div class="projects-grid">
@@ -360,7 +373,7 @@
         <!-- Card 1: Al-Minshawi App -->
         <div class="project-card featured-card">
           <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-mobile-screen text-[var(--green)]"></i> Production Mobile App</span>
+            <span class="project-category"><i class="fa-solid fa-mobile-screen text-[var(--green)]"></i> <span data-i18n="p1_category">Production Mobile App</span></span>
             <div class="project-links">
               <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i>
@@ -372,8 +385,8 @@
           </div>
 
           <div class="project-body">
-            <h3>جامع تلاوات المنشاوي (Al-Minshawi App)</h3>
-            <p>
+            <h3 data-i18n="p1_title">جامع تلاوات المنشاوي (Al-Minshawi App)</h3>
+            <p data-i18n="p1_desc">
               High-performance Flutter Quran audio application dedicated to Sheikh Mohamed Siddiq El-Minshawi.
               Features seamless background audio playback (audio_service), precision A-B repeat looping, offline-first caching via Hive NoSQL,
               and Clean Architecture with Cubit.
@@ -382,7 +395,7 @@
             <div class="project-actions">
               <button type="button" class="btn-preview primary" onclick="openScreenshotsModal(1)">
                 <i class="fa-solid fa-images"></i>
-                <span>Browse Screenshots (5)</span>
+                <span data-i18n="p1_btn_screens">Browse Screenshots (5)</span>
               </button>
               <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" rel="noopener noreferrer" class="btn-preview">
                 <i class="fa-brands fa-github"></i>
@@ -408,7 +421,7 @@
         <!-- Card 2: Alfjr Academy -->
         <div class="project-card">
           <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-globe text-[var(--green)]"></i> Live E-Learning Platform</span>
+            <span class="project-category"><i class="fa-solid fa-globe text-[var(--green)]"></i> <span data-i18n="p2_category">Live E-Learning Platform</span></span>
             <div class="project-links">
               <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" title="Visit Live Platform" aria-label="Live Demo">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -417,8 +430,8 @@
           </div>
 
           <div class="project-body">
-            <h3>Alfjr Academy (أكاديمية الفجر)</h3>
-            <p>
+            <h3 data-i18n="p2_title">Alfjr Academy (أكاديمية الفجر)</h3>
+            <p data-i18n="p2_desc">
               Full-scale educational platform deployed for real students. Built on custom WordPress architecture with WooCommerce integration,
               course dashboards, interactive assessments, high-speed caching, and complete on-page SEO optimization.
             </p>
@@ -426,7 +439,7 @@
             <div class="project-actions">
               <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" class="btn-preview primary">
                 <i class="fa-solid fa-globe"></i>
-                <span>Visit Live Platform</span>
+                <span data-i18n="p2_btn_visit">Visit Live Platform</span>
               </a>
             </div>
           </div>
@@ -444,7 +457,7 @@
         <!-- Card 3: Multi-Vendor E-Commerce -->
         <div class="project-card">
           <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-layer-group text-[var(--green)]"></i> Mobile Architecture</span>
+            <span class="project-category"><i class="fa-solid fa-layer-group text-[var(--green)]"></i> <span data-i18n="p3_category">Mobile Architecture</span></span>
             <div class="project-links">
               <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i>
@@ -456,8 +469,8 @@
           </div>
 
           <div class="project-body">
-            <h3>Multi-Vendor E-Commerce App</h3>
-            <p>
+            <h3 data-i18n="p3_title">Multi-Vendor E-Commerce App</h3>
+            <p data-i18n="p3_desc">
               Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering,
               dynamic cart state management with BLoC, authentication flow, and robust REST API data integration with Dio.
             </p>
@@ -465,7 +478,7 @@
             <div class="project-actions">
               <button type="button" class="btn-preview primary" onclick="openEcomModal(1)">
                 <i class="fa-solid fa-images"></i>
-                <span>Browse Screenshots (6)</span>
+                <span data-i18n="p3_btn_screens">Browse Screenshots (6)</span>
               </button>
               <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" class="btn-preview">
                 <i class="fa-brands fa-github"></i>
@@ -486,7 +499,7 @@
         <!-- Card 4: Algorithms & Problem Solving -->
         <div class="project-card">
           <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-terminal text-[var(--green)]"></i> Competitive Programming</span>
+            <span class="project-category"><i class="fa-solid fa-terminal text-[var(--green)]"></i> <span data-i18n="p4_category">Competitive Programming</span></span>
             <div class="project-links">
               <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" title="Visit Codeforces Profile" aria-label="Codeforces">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -495,16 +508,15 @@
           </div>
 
           <div class="project-body">
-            <h3>Algorithms &amp; Problem Solving</h3>
+            <h3 data-i18n="p4_title">Algorithms &amp; Problem Solving</h3>
             <p>
-              Active competitive programming profile on Codeforces (<span class="text-[var(--green)] font-mono font-bold">@a7md3bdo</span>).
-              Repository of 500+ solved algorithmic challenges in C++20 covering Graph Algorithms, Dynamic Programming, Segment Trees, and Number Theory.
+              <span data-i18n="p4_desc_prefix">Active competitive programming profile on Codeforces (</span><span class="text-[var(--green)] font-mono font-bold">@a7md3bdo</span><span data-i18n="p4_desc_suffix">). Repository of 500+ solved algorithmic challenges in C++20 covering Graph Algorithms, Dynamic Programming, Segment Trees, and Number Theory.</span>
             </p>
 
             <div class="project-actions">
               <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" class="btn-preview primary">
                 <i class="fa-solid fa-code"></i>
-                <span>View Codeforces Profile</span>
+                <span data-i18n="p4_btn_profile">View Codeforces Profile</span>
               </a>
             </div>
           </div>
@@ -523,17 +535,17 @@
 
     <section id="contact">
       <header>
-        <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Let's Connect</span>
-        <h2>Get In <span>Touch</span></h2>
-        <p>Ready to get started on your project?</p>
-        <p class="!text-slate-300 !font-normal !text-base mt-2">Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.</p>
+        <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact_badge">Let's Connect</span></span>
+        <h2><span data-i18n="contact_title_1">Get In </span><span data-i18n="contact_title_2">Touch</span></h2>
+        <p data-i18n="contact_sub1">Ready to get started on your project?</p>
+        <p class="!text-slate-300 !font-normal !text-base mt-2" data-i18n="contact_sub2">Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.</p>
       </header>
 
       <div class="contacts-bar">
         <a href="mailto:ahmed@mohamed-abdo.me" class="contact-strip-item">
           <div class="contact-strip-icon"><i class="fa-regular fa-envelope"></i></div>
           <div class="contact-strip-text">
-            <span class="label">Email</span>
+            <span class="label" data-i18n="contact_lbl_email">Email</span>
             <span class="value">ahmed@mohamed-abdo.me</span>
           </div>
         </a>
@@ -541,7 +553,7 @@
         <a href="https://wa.me/201118115131" target="_blank" rel="noopener noreferrer" class="contact-strip-item">
           <div class="contact-strip-icon"><i class="fa-brands fa-whatsapp"></i></div>
           <div class="contact-strip-text">
-            <span class="label">WhatsApp</span>
+            <span class="label" data-i18n="contact_lbl_whatsapp">WhatsApp</span>
             <span class="value">(+20) 111 811 5131</span>
           </div>
         </a>
@@ -549,7 +561,7 @@
         <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" class="contact-strip-item">
           <div class="contact-strip-icon"><i class="fa-solid fa-code"></i></div>
           <div class="contact-strip-text">
-            <span class="label">Codeforces</span>
+            <span class="label" data-i18n="contact_lbl_codeforces">Codeforces</span>
             <span class="value">@a7md3bdo</span>
           </div>
         </a>
@@ -557,41 +569,41 @@
         <a href="assests/Ahmed_Mohamed_Abdo_CV 62.pdf" target="_blank" download class="contact-strip-item">
           <div class="contact-strip-icon"><i class="fa-solid fa-file-pdf"></i></div>
           <div class="contact-strip-text">
-            <span class="label">Resume</span>
-            <span class="value">Download CV</span>
+            <span class="label" data-i18n="contact_lbl_resume">Resume</span>
+            <span class="value" data-i18n="contact_val_download_cv">Download CV</span>
           </div>
         </a>
       </div>
 
       <div class="contact-form-container">
-        <h2>Send a message to get started</h2>
+        <h2 data-i18n="contact_form_heading">Send a message to get started</h2>
 
         <form class="contact-form-minimal" id="contact-form" onsubmit="handleFormSubmit(event)">
           <div class="form-row-2">
             <div class="form-field-clean">
-              <label for="sender-name">Your Name</label>
-              <input type="text" id="sender-name" name="name" placeholder="Ahmed Mohamed" required />
+              <label for="sender-name" data-i18n="contact_lbl_name">Your Name</label>
+              <input type="text" id="sender-name" name="name" placeholder="Ahmed Mohamed" data-i18n-ph="ph_name" required />
             </div>
             <div class="form-field-clean">
-              <label for="sender-email">Your Email Address</label>
-              <input type="email" id="sender-email" name="email" placeholder="name@example.com" required />
+              <label for="sender-email" data-i18n="contact_lbl_email_field">Your Email Address</label>
+              <input type="email" id="sender-email" name="email" placeholder="name@example.com" data-i18n-ph="ph_email" required />
             </div>
           </div>
 
           <div class="form-field-clean full-width">
-            <label for="sender-message">Your Message</label>
-            <textarea id="sender-message" name="message" placeholder="Describe your project, role, or collaboration inquiry..." rows="3" required></textarea>
+            <label for="sender-message" data-i18n="contact_lbl_msg">Your Message</label>
+            <textarea id="sender-message" name="message" placeholder="Describe your project, role, or collaboration inquiry..." data-i18n-ph="ph_msg" rows="3" required></textarea>
           </div>
 
           <button type="submit" class="contact-clean-btn" id="submit-btn">
-            <span>Send Message</span>
+            <span data-i18n="contact_btn_send">Send Message</span>
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </form>
 
         <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl text-center font-semibold text-base text-[var(--green)] bg-[#212121] border border-[var(--green)]/30">
           <i class="fa-solid fa-check-circle mr-2"></i>
-          <span>Thank you! Your message has been sent successfully.</span>
+          <span data-i18n="contact_success_msg">Thank you! Your message has been sent successfully.</span>
         </div>
       </div>
     </section>
@@ -606,9 +618,9 @@
     </a>
 
     <p>
-      <span>This website was made with</span>
+      <span data-i18n="footer_p_prefix">This website was made with</span>
       <i class="fa-solid fa-heart text-red-500 animate-pulse text-xl"></i>
-      <span>by Ahmed Mohamed Abdo</span>
+      <span data-i18n="footer_p_suffix">by Ahmed Mohamed Abdo</span>
     </p>
 
     <div class="social-media">
@@ -643,7 +655,7 @@
           </div>
           <div>
             <h3 class="text-xl font-bold text-white">جامع تلاوات المنشاوي - Screenshots</h3>
-            <p class="text-xs text-[var(--green)]">Production Flutter Mobile Application</p>
+            <p class="text-xs text-[var(--green)]" data-i18n="modal_minshawi_subtitle">Production Flutter Mobile Application</p>
           </div>
         </div>
         <button type="button" onclick="closeModalDirect()" class="text-slate-400 hover:text-white text-2xl p-2 focus:outline-none">
@@ -675,10 +687,10 @@
         <span id="screenCounter" class="text-slate-300 font-medium">Screenshot 1 of 5</span>
         <div class="flex items-center gap-4">
           <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" class="text-[var(--green)] hover:underline flex items-center gap-1">
-            <i class="fa-solid fa-download"></i> Download APKPure
+            <i class="fa-solid fa-download"></i> <span data-i18n="modal_download_apk">Download APKPure</span>
           </a>
           <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1">
-            <i class="fa-brands fa-github"></i> Repository
+            <i class="fa-brands fa-github"></i> <span data-i18n="modal_repo">Repository</span>
           </a>
         </div>
       </div>
@@ -694,7 +706,7 @@
           </div>
           <div>
             <h3 class="text-xl font-bold text-white">Multi-Vendor E-Commerce - Screenshots</h3>
-            <p class="text-xs text-[var(--green)]">Production-Grade Clean Architecture App</p>
+            <p class="text-xs text-[var(--green)]" data-i18n="modal_ecom_subtitle">Production-Grade Clean Architecture App</p>
           </div>
         </div>
         <button type="button" onclick="closeEcomDirect()" class="text-slate-400 hover:text-white text-2xl p-2 focus:outline-none">
@@ -727,7 +739,7 @@
         <span id="ecomCounter" class="text-slate-300 font-medium">Screenshot 1 of 6</span>
         <div class="flex items-center gap-4">
           <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" class="text-[var(--green)] hover:underline flex items-center gap-1">
-            <i class="fa-brands fa-github"></i> Repository
+            <i class="fa-brands fa-github"></i> <span data-i18n="modal_repo">Repository</span>
           </a>
         </div>
       </div>
