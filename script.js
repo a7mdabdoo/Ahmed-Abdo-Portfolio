@@ -56,8 +56,8 @@ const navItems = document.querySelectorAll('.nav-item');
     }
 
     document.documentElement.classList.add('js-ready');
-    const aboutMainCard = document.querySelector('.about-main-card');
-    if (aboutMainCard && 'IntersectionObserver' in window) {
+    const aboutCard = document.querySelector('.about-clean-container, .about-main-card');
+    if (aboutCard && 'IntersectionObserver' in window) {
       const aboutObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -66,9 +66,9 @@ const navItems = document.querySelectorAll('.nav-item');
           }
         });
       }, { threshold: 0.12 });
-      aboutObserver.observe(aboutMainCard);
-    } else if (aboutMainCard) {
-      aboutMainCard.classList.add('in-view');
+      aboutObserver.observe(aboutCard);
+    } else if (aboutCard) {
+      aboutCard.classList.add('in-view');
     }
     async function handleFormSubmit(e) {
       e.preventDefault();
