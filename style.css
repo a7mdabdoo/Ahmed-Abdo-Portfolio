@@ -55,7 +55,15 @@
       width: 100vw;
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    header.header-fixed.header-scrolled {
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+      background-color: rgba(8, 11, 18, 0.94);
+      border-bottom-color: rgba(139, 92, 246, 0.22);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
     }
 
     .logo {
@@ -103,10 +111,12 @@
       transform: translateX(-50%);
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       color: var(--green);
     }
-    nav a:hover::after {
+    nav a:hover::after,
+    nav a.active::after {
       width: 80%;
     }
 
@@ -498,6 +508,131 @@
       color: #c084fc;
       margin-bottom: 1.6rem;
       box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+    }
+
+    /* ==========================================================================
+       Scroll Reveal Engine & Micro-Interactions ("انيميشنز وترانزيشن كل ما تروح ع سكشن")
+       ========================================================================== */
+    html.js-ready .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.35s ease,
+                  box-shadow 0.35s ease;
+      will-change: opacity, transform;
+    }
+
+    html.js-ready .reveal-on-scroll.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section Tag Reveal with subtle scale and neon glow */
+    html.js-ready .section-tag.reveal-on-scroll {
+      transform: translateY(16px) scale(0.92);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.6s ease;
+    }
+
+    html.js-ready .section-tag.reveal-on-scroll.in-view {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Hero section staggered reveal */
+    html.js-ready #home .hero-text .hero-badge.reveal-on-scroll { transition-delay: 0.08s; }
+    html.js-ready #home .hero-text p.greeting.reveal-on-scroll { transition-delay: 0.16s; }
+    html.js-ready #home .hero-text h1.reveal-on-scroll { transition-delay: 0.24s; }
+    html.js-ready #home .hero-text h3.reveal-on-scroll { transition-delay: 0.32s; }
+    html.js-ready #home .hero-text p.small-resume.reveal-on-scroll { transition-delay: 0.40s; }
+    html.js-ready #home .hero-text .hero-actions.reveal-on-scroll { transition-delay: 0.48s; }
+
+    html.js-ready #home .hero-image.reveal-on-scroll {
+      transform: scale(0.88) translateY(24px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: 0.25s;
+    }
+    html.js-ready #home .hero-image.reveal-on-scroll.in-view {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Metric pills staggered spring entrance inside About */
+    html.js-ready .about-clean-container:not(.in-view) .metric-pill {
+      opacity: 0;
+      transform: translateY(18px) scale(0.95);
+    }
+    html.js-ready .about-clean-container.in-view .metric-pill {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    html.js-ready .about-clean-container.in-view .metric-pill:nth-child(1) { transition-delay: 0.12s; }
+    html.js-ready .about-clean-container.in-view .metric-pill:nth-child(2) { transition-delay: 0.22s; }
+    html.js-ready .about-clean-container.in-view .metric-pill:nth-child(3) { transition-delay: 0.32s; }
+    html.js-ready .about-clean-container.in-view .metric-pill:nth-child(4) { transition-delay: 0.42s; }
+
+    /* Skills cards staggered slide */
+    html.js-ready .skills-main-div.reveal-on-scroll {
+      transform: translateY(36px) scale(0.98);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    html.js-ready .skills-main-div.reveal-on-scroll.in-view {
+      transform: translateY(0) scale(1);
+    }
+    html.js-ready .skills-main-div:nth-of-type(1).reveal-on-scroll { transition-delay: 0.08s; }
+    html.js-ready .skills-main-div:nth-of-type(2).reveal-on-scroll { transition-delay: 0.16s; }
+    html.js-ready .skills-main-div:nth-of-type(3).reveal-on-scroll { transition-delay: 0.16s; }
+
+    /* Projects 2x2 grid staggered cascade */
+    html.js-ready .project-card.reveal-on-scroll {
+      transform: translateY(34px) scale(0.97);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    html.js-ready .project-card.reveal-on-scroll.in-view {
+      transform: translateY(0) scale(1);
+    }
+    html.js-ready .projects-grid .project-card:nth-child(1).reveal-on-scroll { transition-delay: 0.08s; }
+    html.js-ready .projects-grid .project-card:nth-child(2).reveal-on-scroll { transition-delay: 0.18s; }
+    html.js-ready .projects-grid .project-card:nth-child(3).reveal-on-scroll { transition-delay: 0.28s; }
+    html.js-ready .projects-grid .project-card:nth-child(4).reveal-on-scroll { transition-delay: 0.38s; }
+
+    /* Contact Strip Items staggered spring cascade */
+    html.js-ready .contact-strip-item.reveal-on-scroll {
+      transform: translateY(28px) scale(0.96);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    html.js-ready .contact-strip-item.reveal-on-scroll.in-view {
+      transform: translateY(0) scale(1);
+    }
+    html.js-ready .contacts-bar .contact-strip-item:nth-child(1).reveal-on-scroll { transition-delay: 0.08s; }
+    html.js-ready .contacts-bar .contact-strip-item:nth-child(2).reveal-on-scroll { transition-delay: 0.18s; }
+    html.js-ready .contacts-bar .contact-strip-item:nth-child(3).reveal-on-scroll { transition-delay: 0.28s; }
+    html.js-ready .contacts-bar .contact-strip-item:nth-child(4).reveal-on-scroll { transition-delay: 0.38s; }
+
+    /* Contact Form entrance */
+    html.js-ready .contact-form-container.reveal-on-scroll {
+      transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: 0.22s;
+    }
+    html.js-ready .contact-form-container.reveal-on-scroll.in-view {
+      transform: translateY(0);
+    }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      html.js-ready .reveal-on-scroll,
+      html.js-ready .section-tag.reveal-on-scroll,
+      html.js-ready #home .hero-image.reveal-on-scroll,
+      html.js-ready .skills-main-div.reveal-on-scroll,
+      html.js-ready .project-card.reveal-on-scroll,
+      html.js-ready .contact-strip-item.reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
 
     section#about {
@@ -1889,13 +2024,13 @@
       }
 
       .hero-text h1 {
-        font-size: clamp(3.2rem, 8.5vw, 4rem);
+        font-size: clamp(2.5rem, 7.5vw, 3.8rem);
         letter-spacing: -0.5px;
         line-height: 1.2;
       }
 
       .hero-text h3 {
-        font-size: 1.8rem;
+        font-size: clamp(1.55rem, 4.2vw, 1.9rem);
         line-height: 1.4;
         margin-bottom: 1.2rem;
       }
@@ -2156,8 +2291,8 @@
       form.contact-form input,
       form.contact-form textarea {
         width: 100%;
-        padding: 1.2rem 1.6rem;
-        font-size: 1.5rem;
+        padding: 1.3rem 1.6rem;
+        font-size: 1.6rem !important;
         border-radius: 1.2rem;
       }
 
@@ -2288,14 +2423,24 @@
       color: #7c3aed;
     }
 
+    body.light-theme header.header-fixed.header-scrolled {
+      background-color: rgba(255, 255, 255, 0.96);
+      border-bottom-color: rgba(124, 58, 237, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
     body.light-theme nav a {
       color: #334155;
     }
-    body.light-theme nav a:hover {
+    body.light-theme nav a:hover,
+    body.light-theme nav a.active {
       color: #7c3aed;
     }
     body.light-theme nav a::after {
       background-color: #7c3aed;
+    }
+    body.light-theme nav a.active::after {
+      width: 80%;
     }
 
     body.light-theme .theme-toggle-btn {
