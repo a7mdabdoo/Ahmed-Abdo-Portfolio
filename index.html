@@ -41,6 +41,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -55,6 +56,7 @@
 
     html {
       font-size: 62.5%;
+      overflow-x: hidden;
     }
 
     header.header-fixed {
@@ -1049,10 +1051,17 @@
 
     @media (max-width: 960px) {
       header.header-fixed {
-        padding: 1.8rem 3rem;
+        padding: 1.6rem 3rem;
       }
 
-      .menu-container, .menu {
+      .menu-container {
+        display: block;
+        padding: 0.8rem;
+        margin-right: -0.6rem;
+        z-index: 1001;
+      }
+
+      .menu {
         display: block;
       }
 
@@ -1060,33 +1069,58 @@
         position: fixed;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(18, 18, 18, 0.98);
-        backdrop-filter: blur(16px);
+        height: 100dvh;
+        background: radial-gradient(circle at top right, rgba(23, 249, 23, 0.08) 0%, rgba(15, 15, 15, 0.98) 75%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         top: 0;
         left: 0;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3rem;
+        gap: 2.2rem;
+        padding: 8rem 2rem 4rem;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         z-index: 999;
+        overflow-y: auto;
       }
 
       nav.active {
         opacity: 1;
         visibility: visible;
+        transform: translateY(0);
       }
 
       nav a {
         font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding: 0.8rem 1.6rem;
+        border-radius: 1rem;
+        transition: all 0.25s ease;
+      }
+
+      nav a:hover, nav a:active {
+        color: var(--green);
+        background: rgba(23, 249, 23, 0.08);
+      }
+
+      nav a.button {
+        font-size: 1.6rem;
+        padding: 1rem 2.8rem;
+        margin-top: 1rem;
+        box-shadow: 0 0 20px rgba(23, 249, 23, 0.3);
       }
 
       section#home {
         flex-direction: column;
         text-align: center;
-        padding-top: 14rem;
+        padding-top: 13rem;
+        padding-bottom: 6rem;
+        min-height: auto;
         gap: 4rem;
       }
 
@@ -1103,16 +1137,18 @@
       }
 
       .hero-image {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
       }
+
       .hero-image .img-wrapper {
-        width: 280px;
-        height: 280px;
+        width: 260px;
+        height: 260px;
       }
 
       section#about {
         grid-template-columns: 1fr;
         text-align: center;
+        margin-top: 10rem;
         gap: 4rem;
       }
 
@@ -1120,10 +1156,15 @@
         justify-content: center;
       }
 
+      section#skills {
+        margin-top: 10rem;
+      }
+
       .skills-main-div {
         flex-direction: column;
-        gap: 4rem;
+        gap: 3.5rem;
         padding: 4rem 3rem;
+        margin: 5rem 0;
       }
 
       .skills-main-div.reverse {
@@ -1143,8 +1184,22 @@
         font-size: 2.8rem;
       }
 
+      section#project {
+        margin-top: 10rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+
+      section#contact {
+        margin-top: 10rem;
+      }
+
       .contacts {
         flex-direction: column;
+        gap: 1.8rem;
       }
 
       .btn-two {
@@ -1157,28 +1212,413 @@
         gap: 2rem;
         text-align: center;
         padding: 4rem 2rem;
+        margin-top: 10rem;
       }
     }
 
-    @media (max-width: 600px) {
-      header.header-fixed,
+    @media (max-width: 768px) {
+      header.header-fixed {
+        padding: 1.4rem 2.2rem;
+      }
+
+      .logo {
+        font-size: 2.4rem;
+      }
+
       main.main-container {
         padding-left: 2rem;
         padding-right: 2rem;
       }
 
-      .hero-text h1 {
-        font-size: 3.8rem;
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
       }
+
+      .project-card {
+        padding: 2.6rem 2.2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header.header-fixed {
+        padding: 1.2rem 1.6rem;
+      }
+
+      .logo {
+        font-size: 2.2rem;
+      }
+
+      main.main-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      section#home {
+        padding-top: 10.5rem;
+        padding-bottom: 4rem;
+        gap: 3rem;
+      }
+
+      .hero-text p.greeting {
+        font-size: 1.8rem;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(3.2rem, 8.5vw, 4rem);
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+      }
+
       .hero-text h3 {
+        font-size: 1.8rem;
+        line-height: 1.4;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-text p.small-resume {
+        font-size: 1.5rem;
+        line-height: 1.65;
+        margin-bottom: 2.4rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 1.2rem;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+        padding: 1.3rem 2.4rem;
+        font-size: 1.55rem;
+        justify-content: center;
+      }
+
+      .hero-text .social-media {
+        gap: 1.2rem;
+        margin-top: 0.8rem;
+        justify-content: center;
+      }
+
+      .hero-text .social-media a {
+        width: 4.4rem;
+        height: 4.4rem;
+        font-size: 1.8rem;
+      }
+
+      .hero-image .img-wrapper {
+        width: min(220px, 62vw);
+        height: min(220px, 62vw);
+        box-shadow: 0 0 30px rgba(23, 249, 23, 0.2);
+      }
+
+      section#about {
+        margin-top: 7rem;
+        gap: 3rem;
+      }
+
+      .about-image .img-card {
+        max-width: 280px;
+        margin: 0 auto;
+        border-radius: 1.6rem;
+      }
+
+      .about-text h2 {
+        font-size: 3.2rem;
+      }
+
+      .about-text p {
+        font-size: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .about-text h3 {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+
+      .hard-skills {
+        gap: 0.8rem;
+      }
+
+      .hability {
+        min-width: 66px;
+        padding: 0.8rem 1rem;
+        border-radius: 1rem;
+      }
+
+      .hability i {
+        font-size: 2.4rem;
+      }
+
+      .hability span {
+        font-size: 1.1rem;
+      }
+
+      section#skills {
+        margin-top: 7rem;
+      }
+
+      .skills-header {
+        font-size: 3.2rem;
+        margin-bottom: 2.8rem;
+      }
+
+      .skills-main-div {
+        padding: 2.8rem 1.8rem;
+        border-radius: 1.8rem;
+        margin: 3rem 0;
+        gap: 2.4rem;
+      }
+
+      .skills-icon-badge {
+        width: 110px;
+        height: 110px;
+      }
+
+      .skills-icon-badge i {
+        font-size: 4.5rem !important;
+      }
+
+      .skills-heading {
+        font-size: 2.2rem;
+      }
+
+      .skills-text {
+        font-size: 1.45rem;
+        line-height: 1.6;
+      }
+
+      .software-skills {
+        gap: 0.8rem;
+        justify-content: center;
+      }
+
+      .software-skill-pill {
+        font-size: 1.2rem;
+        padding: 0.5rem 1.2rem;
+      }
+
+      section#project {
+        margin-top: 7rem;
+      }
+
+      .projects-header {
+        margin-bottom: 3.2rem;
+      }
+
+      .projects-header h1 {
+        font-size: 3.2rem;
+      }
+
+      .projects-header p {
+        font-size: 1.5rem;
+      }
+
+      .project-card {
+        padding: 2.2rem 1.8rem;
+        border-radius: 1.4rem;
+      }
+
+      .project-body h3 {
         font-size: 2rem;
       }
-      .skills-header, .projects-header h1, section#contact header h2 {
-        font-size: 3.6rem;
+
+      .project-body p {
+        font-size: 1.45rem;
+        line-height: 1.65;
+        margin-bottom: 1.8rem;
       }
+
+      .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        width: 100%;
+        margin-bottom: 1.8rem;
+      }
+
+      .project-actions .btn-preview {
+        flex: 1 1 auto;
+        justify-content: center;
+        padding: 0.9rem 1.4rem;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+
+      .tech-list {
+        gap: 0.7rem;
+        padding-top: 1.4rem;
+      }
+
+      .tech-list li {
+        font-size: 1.15rem;
+        padding: 0.2rem 0.6rem;
+        background: rgba(23, 249, 23, 0.06);
+        border-radius: 0.4rem;
+      }
+
+      section#contact {
+        margin-top: 7rem;
+      }
+
+      section#contact header {
+        margin-bottom: 3.2rem;
+      }
+
+      section#contact header h2 {
+        font-size: 3.2rem;
+      }
+
+      section#contact header p {
+        font-size: 1.5rem;
+      }
+
+      .contacts {
+        gap: 1.2rem;
+        margin-bottom: 3.2rem;
+      }
+
+      .btn-two {
+        padding: 1.3rem 1.8rem;
+        border-radius: 1.2rem;
+        gap: 1.2rem;
+      }
+
+      .btn-two i {
+        font-size: 2.4rem;
+      }
+
+      .btn-two a, .btn-two span {
+        font-size: 1.45rem;
+        word-break: break-all;
+      }
+
+      .contact-form-container h2 {
+        font-size: 2.2rem;
+      }
+
+      form.contact-form {
+        gap: 1.4rem;
+      }
+
       form.contact-form input,
       form.contact-form textarea {
         width: 100%;
+        padding: 1.2rem 1.6rem;
+        font-size: 1.6rem;
+        border-radius: 1.2rem;
+      }
+
+      form.contact-form textarea {
+        height: 14rem;
+      }
+
+      .second-cta {
+        margin: 15px 0;
+        padding: 1.5rem 2.8rem;
+        font-size: 1.35rem;
+        letter-spacing: 2px;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      footer.footer {
+        margin-top: 7rem;
+        padding: 3rem 1.6rem;
+        gap: 1.8rem;
+      }
+
+      footer.footer p {
+        font-size: 1.35rem;
+        flex-wrap: wrap;
+      }
+
+      .scroll-top-btn {
+        bottom: 2rem;
+        right: 2rem;
+        width: 4.4rem;
+        height: 4.4rem;
+        font-size: 1.7rem;
+      }
+
+      .modal-overlay {
+        padding: 1rem;
+        align-items: center;
+      }
+
+      .modal-content {
+        padding: 1.6rem 1.2rem;
+        max-height: 92vh;
+        max-height: 92dvh;
+        border-radius: 1.6rem;
+        overflow-y: auto;
+      }
+
+      .modal-content h3 {
+        font-size: 1.5rem;
+      }
+
+      .modal-stage {
+        min-height: 260px !important;
+        max-height: 46vh !important;
+        padding: 0.6rem !important;
+      }
+
+      .modal-stage img {
+        max-height: 42vh !important;
+      }
+
+      .modal-nav-btn {
+        width: 3.8rem !important;
+        height: 3.8rem !important;
+        font-size: 1.4rem !important;
+      }
+
+      .modal-nav-btn.prev-btn {
+        left: 0.6rem !important;
+      }
+
+      .modal-nav-btn.next-btn {
+        right: 0.6rem !important;
+      }
+
+      .thumb-item, .ecom-thumb-item {
+        width: 44px !important;
+        height: 76px !important;
+        border-radius: 6px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo {
+        font-size: 2rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-text h3 {
+        font-size: 1.6rem;
+      }
+
+      .hero-actions .button {
+        font-size: 1.4rem;
+        padding: 1.1rem 1.8rem;
+      }
+
+      .btn-two a, .btn-two span {
+        font-size: 1.3rem;
+      }
+
+      .project-actions .btn-preview {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
       }
     }
   </style>
@@ -1741,14 +2181,14 @@
         </button>
       </div>
 
-      <div class="relative flex items-center justify-center bg-black/60 rounded-xl p-4 min-h-[460px] overflow-hidden">
-        <button type="button" onclick="prevScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+      <div class="relative flex items-center justify-center bg-black/60 rounded-xl p-4 min-h-[460px] overflow-hidden modal-stage">
+        <button type="button" onclick="prevScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10 modal-nav-btn prev-btn">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
 
         <img id="activeScreenshotImg" src="assests/screenshot_1.png" alt="App Screenshot" class="max-h-[500px] w-auto rounded-xl shadow-2xl object-contain transition-all duration-300" />
 
-        <button type="button" onclick="nextScreenshot()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+        <button type="button" onclick="nextScreenshot()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10 modal-nav-btn next-btn">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
@@ -1792,14 +2232,14 @@
         </button>
       </div>
 
-      <div class="relative flex items-center justify-center bg-black/60 rounded-xl p-4 min-h-[460px] overflow-hidden">
-        <button type="button" onclick="prevEcomScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+      <div class="relative flex items-center justify-center bg-black/60 rounded-xl p-4 min-h-[460px] overflow-hidden modal-stage">
+        <button type="button" onclick="prevEcomScreenshot()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10 modal-nav-btn prev-btn">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
 
         <img id="activeEcomImg" src="assests/ecommerce/01_home_dark.png" alt="App Screenshot" class="max-h-[500px] w-auto rounded-xl shadow-2xl object-contain transition-all duration-300" />
 
-        <button type="button" onclick="nextEcomScreenshot()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10">
+        <button type="button" onclick="nextEcomScreenshot()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-[var(--green)] hover:text-black text-white text-xl flex items-center justify-center transition-all z-10 modal-nav-btn next-btn">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
@@ -2048,6 +2488,45 @@
       setEcomScreenshot(prev);
     }
 
+    // Touch swipe support for modals
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    function handleTouchStart(e) {
+      if (e.touches && e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }
+
+    function handleTouchEnd(e, isEcom) {
+      if (!e.changedTouches || e.changedTouches.length === 0) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          isEcom ? nextEcomScreenshot() : nextScreenshot();
+        } else {
+          isEcom ? prevEcomScreenshot() : prevScreenshot();
+        }
+      }
+    }
+
+    const minshawiModal = document.getElementById('screenshotModal');
+    if (minshawiModal) {
+      minshawiModal.addEventListener('touchstart', handleTouchStart, { passive: true });
+      minshawiModal.addEventListener('touchend', (e) => handleTouchEnd(e, false), { passive: true });
+    }
+
+    const ecomModalElem = document.getElementById('ecomModal');
+    if (ecomModalElem) {
+      ecomModalElem.addEventListener('touchstart', handleTouchStart, { passive: true });
+      ecomModalElem.addEventListener('touchend', (e) => handleTouchEnd(e, true), { passive: true });
+    }
+
     window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('screenshotModal');
       if (modal && modal.classList.contains('active')) {
@@ -2062,6 +2541,7 @@
         if (e.key === 'ArrowLeft') prevEcomScreenshot();
       }
     });
+
     (function initParticles() {
       const canvas = document.getElementById('tsparticles');
       const ctx = canvas.getContext('2d');
@@ -2075,7 +2555,7 @@
       resize();
 
       const particles = [];
-      const particleCount = Math.floor(Math.min(window.innerWidth / 25, 45));
+      const particleCount = Math.floor(Math.min(window.innerWidth / 28, 40));
 
       const mouse = {
         x: null,
@@ -2146,12 +2626,13 @@
             const dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (dist < 130) {
+            const maxDist = width < 768 ? 90 : 130;
+            if (dist < maxDist) {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
               ctx.strokeStyle = '#17f917';
-              ctx.globalAlpha = (1 - dist / 130) * 0.22;
+              ctx.globalAlpha = (1 - dist / maxDist) * 0.22;
               ctx.lineWidth = 0.8;
               ctx.stroke();
             }
