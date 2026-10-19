@@ -1,7 +1,30 @@
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.documentElement.classList.add('light-theme');
+    document.body.classList.add('light-theme');
+  } else {
+    document.documentElement.classList.remove('light-theme');
+    document.body.classList.remove('light-theme');
+  }
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light-theme');
+    document.documentElement.classList.toggle('light-theme', isLight);
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
+
+initTheme();
+
 const menuBtn = document.getElementById('menu-btn');
-    const menuIcon = document.getElementById('menu-icon');
-    const navbarLinks = document.getElementById('navbar-links');
-    const navItems = document.querySelectorAll('.nav-item');
+const menuIcon = document.getElementById('menu-icon');
+const navbarLinks = document.getElementById('navbar-links');
+const navItems = document.querySelectorAll('.nav-item');
 
     menuBtn.addEventListener('click', () => {
       menuIcon.classList.toggle('active');
@@ -339,10 +362,11 @@ const menuBtn = document.getElementById('menu-btn');
         }
 
         draw() {
+          const isLight = document.body.classList.contains('light-theme');
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.fillStyle = this.color;
-          ctx.globalAlpha = this.baseAlpha;
+          ctx.fillStyle = isLight ? '#7c3aed' : this.color;
+          ctx.globalAlpha = isLight ? (this.baseAlpha * 0.45) : this.baseAlpha;
           ctx.fill();
         }
       }
@@ -353,6 +377,7 @@ const menuBtn = document.getElementById('menu-btn');
 
       function animate() {
         ctx.clearRect(0, 0, width, height);
+        const isLight = document.body.classList.contains('light-theme');
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
@@ -364,8 +389,8 @@ const menuBtn = document.getElementById('menu-btn');
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = '#8b5cf6';
-              ctx.globalAlpha = (1 - dist / maxDist) * 0.22;
+              ctx.strokeStyle = isLight ? '#7c3aed' : '#8b5cf6';
+              ctx.globalAlpha = (1 - dist / maxDist) * (isLight ? 0.12 : 0.22);
               ctx.lineWidth = 0.8;
               ctx.stroke();
             }
