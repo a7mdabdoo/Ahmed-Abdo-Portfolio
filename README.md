@@ -15,7 +15,7 @@ Computer Science & Artificial Intelligence student at **South Valley National Un
 - **Programming & Algorithms:** C++, Python, OOP, Data Structures & Algorithms
 
 ## Contact
-- **Email:** [ahmed@mohamed-abdo.com](mailto:ahmed@mohamed-abdo.com)
+- **Email:** [ahmed@mohamed-abdo.me](mailto:ahmed@mohamed-abdo.me)
 - **LinkedIn:** [linkedin.com/in/ahmd-mhmd-abdo](https://linkedin.com/in/ahmd-mhmd-abdo)
 - **GitHub:** [github.com/a7mdabdoo](https://github.com/a7mdabdoo)
 - **Codeforces:** [codeforces.com/profile/a7md3bdo](https://codeforces.com/profile/a7md3bdo)
