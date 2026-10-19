@@ -215,6 +215,75 @@
       overflow-x: hidden;
     }
 
+    .ambient-glow {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(130px);
+      will-change: transform;
+    }
+
+    .glow-1 {
+      top: 4rem;
+      right: -8rem;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(23, 249, 23, 0.16) 0%, rgba(1, 111, 185, 0.1) 60%, transparent 75%);
+      animation: floatGlow1 16s ease-in-out infinite alternate;
+    }
+
+    .glow-2 {
+      top: 75rem;
+      left: -10rem;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(1, 111, 185, 0.16) 0%, rgba(227, 31, 113, 0.08) 60%, transparent 75%);
+      animation: floatGlow2 20s ease-in-out infinite alternate;
+    }
+
+    .glow-3 {
+      top: 170rem;
+      right: -8rem;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(23, 249, 23, 0.15) 0%, rgba(1, 111, 185, 0.12) 60%, transparent 75%);
+      animation: floatGlow3 18s ease-in-out infinite alternate;
+    }
+
+    .glow-4 {
+      top: 260rem;
+      left: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(23, 249, 23, 0.14) 0%, rgba(1, 111, 185, 0.08) 60%, transparent 75%);
+      animation: floatGlow4 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow1 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-35px, 25px) scale(1.08); }
+      100% { transform: translate(25px, -15px) scale(0.95); }
+    }
+
+    @keyframes floatGlow2 {
+      0% { transform: translate(0, 0) scale(0.95); }
+      50% { transform: translate(45px, -35px) scale(1.12); }
+      100% { transform: translate(-25px, 25px) scale(1); }
+    }
+
+    @keyframes floatGlow3 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-45px, 35px) scale(1.08); }
+      100% { transform: translate(25px, -25px) scale(0.94); }
+    }
+
+    @keyframes floatGlow4 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(25px, -25px) scale(1.1); }
+      100% { transform: translate(-35px, 15px) scale(0.95); }
+    }
+
     #tsparticles {
       position: fixed;
       left: 0;
@@ -348,6 +417,96 @@
       50% { transform: translateY(-15px); }
     }
 
+    .floating-geo-pill {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(26, 26, 26, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(23, 249, 23, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(23, 249, 23, 0.15);
+      padding: 0.9rem 1.6rem;
+      border-radius: 2rem;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      z-index: 10;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .floating-geo-pill.pill-top {
+      top: 20px;
+      left: -25px;
+      animation: floatPill1 6s ease-in-out infinite;
+    }
+
+    .floating-geo-pill.pill-bottom {
+      bottom: 25px;
+      right: -25px;
+      animation: floatPill2 7s ease-in-out infinite 1s;
+    }
+
+    @keyframes floatPill1 {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    @keyframes floatPill2 {
+      0%, 100% { transform: translateY(0px) rotate(2deg); }
+      50% { transform: translateY(10px) rotate(-1deg); }
+    }
+
+    .geo-orbit-ring {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .geo-orbit-ring.ring-1 {
+      width: 420px;
+      height: 420px;
+      border: 1.5px dashed rgba(23, 249, 23, 0.22);
+      animation: spinSlow 35s linear infinite;
+    }
+
+    .geo-orbit-ring.ring-2 {
+      width: 470px;
+      height: 470px;
+      border: 1px dotted rgba(1, 111, 185, 0.28);
+      animation: spinReverse 45s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spinReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.5rem 1.6rem;
+      background: rgba(23, 249, 23, 0.08);
+      border: 1px solid rgba(23, 249, 23, 0.3);
+      border-radius: 2rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--green);
+      margin-bottom: 1.4rem;
+      box-shadow: 0 0 15px rgba(23, 249, 23, 0.15);
+    }
+
     section#about {
       margin-top: 14rem;
       display: grid;
@@ -471,6 +630,25 @@
       border-radius: 2.4rem;
       border: 1px solid rgba(255, 255, 255, 0.06);
       transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-main-div::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(1, 111, 185, 0.22) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+
+    .skills-main-div:hover::before {
+      background: radial-gradient(circle, rgba(23, 249, 23, 0.25) 0%, transparent 70%);
     }
 
     .skills-main-div:hover {
@@ -609,6 +787,45 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.35s ease;
       position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle, rgba(23, 249, 23, 0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+
+    .project-card:hover::before {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(23, 249, 23, 0.32) 0%, transparent 70%);
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(23, 249, 23, 0.7), transparent);
+      opacity: 0.5;
+      transition: all 0.4s ease;
+    }
+
+    .project-card:hover::after {
+      left: 5%;
+      right: 5%;
+      opacity: 1;
+      background: linear-gradient(90deg, transparent, rgba(23, 249, 23, 1), transparent);
     }
 
     .project-card:hover {
@@ -1587,10 +1804,61 @@
         right: 0.6rem !important;
       }
 
+      .ambient-glow {
+        filter: blur(80px);
+        opacity: 0.14;
+      }
+
+      .geo-orbit-ring.ring-1 {
+        width: 300px;
+        height: 300px;
+      }
+
+      .geo-orbit-ring.ring-2 {
+        width: 340px;
+        height: 340px;
+      }
+
+      .floating-geo-pill.pill-top {
+        top: 0;
+        left: -15px;
+        padding: 0.7rem 1.2rem;
+        font-size: 1.2rem;
+      }
+
+      .floating-geo-pill.pill-bottom {
+        bottom: 5px;
+        right: -15px;
+        padding: 0.7rem 1.2rem;
+        font-size: 1.2rem;
+      }
+
+      .section-tag {
+        font-size: 1.15rem;
+        padding: 0.4rem 1.3rem;
+        margin-bottom: 1.2rem;
+      }
+
       .thumb-item, .ecom-thumb-item {
         width: 44px !important;
         height: 76px !important;
         border-radius: 6px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .floating-geo-pill {
+        display: none;
+      }
+
+      .geo-orbit-ring.ring-1 {
+        width: 240px;
+        height: 240px;
+      }
+
+      .geo-orbit-ring.ring-2 {
+        width: 270px;
+        height: 270px;
       }
     }
 
@@ -1654,6 +1922,11 @@
 
   <main class="main-container">
 
+    <div class="ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+    <div class="ambient-glow glow-3" aria-hidden="true"></div>
+    <div class="ambient-glow glow-4" aria-hidden="true"></div>
+
     <section id="home">
       <div class="hero-text">
         <p class="greeting">
@@ -1702,8 +1975,18 @@
       </div>
 
       <div class="hero-image">
+        <div class="geo-orbit-ring ring-1" aria-hidden="true"></div>
+        <div class="geo-orbit-ring ring-2" aria-hidden="true"></div>
+        <div class="floating-geo-pill pill-top">
+          <i class="fa-solid fa-mobile-screen-button text-[var(--green)]"></i>
+          <span>Flutter &amp; Dart</span>
+        </div>
         <div class="img-wrapper">
           <img src="assests/profile.jpg" alt="Ahmed Mohamed Abdo" />
+        </div>
+        <div class="floating-geo-pill pill-bottom">
+          <i class="fa-solid fa-cube text-[var(--green)]"></i>
+          <span>Clean Architecture</span>
         </div>
       </div>
     </section>
@@ -1776,7 +2059,10 @@
     </section>
 
     <section id="skills">
-      <h1 class="skills-header">What <span>I Do?</span></h1>
+      <div class="text-center mb-6">
+        <span class="section-tag"><i class="fa-solid fa-layer-group"></i> My Capabilities</span>
+        <h1 class="skills-header !mb-0">What <span>I Do?</span></h1>
+      </div>
 
       <div class="skills-main-div">
         <div class="skills-image-div">
@@ -1893,6 +2179,7 @@
 
     <section id="project">
       <div class="projects-header">
+        <span class="section-tag"><i class="fa-solid fa-cubes"></i> Featured Portfolio</span>
         <h1>Featured <span>Projects</span></h1>
         <p>A selection of production-ready mobile apps, live web portals, and software engineering work.</p>
       </div>
@@ -2075,6 +2362,7 @@
 
     <section id="contact">
       <header>
+        <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Let's Connect</span>
         <h2>Get In <span>Touch</span></h2>
         <p>Ready to get started on your project?</p>
         <p class="!text-slate-300 !font-normal !text-base mt-2">Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.</p>
