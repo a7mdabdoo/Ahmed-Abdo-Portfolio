@@ -23,9 +23,6 @@ if (themeToggleBtn) {
 
 initTheme();
 
-/* ==========================================================================
-   Internationalization (i18n) - English & Arabic
-   ========================================================================== */
 const translations = {
   en: {
     nav_home: "Home",
@@ -312,7 +309,6 @@ if (langToggleBtn) {
   });
 }
 
-// Initialize language on script run
 setLanguage(currentLang);
 
     const menuBtn = document.getElementById('menu-btn');
@@ -690,7 +686,6 @@ setLanguage(currentLang);
       setEcomScreenshot(prev);
     }
 
-    // Touch swipe support for modals
     let touchStartX = 0;
     let touchStartY = 0;
 

@@ -562,9 +562,6 @@
       box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
     }
 
-    /* ==========================================================================
-       Scroll Reveal Engine & Micro-Interactions (")
-       ========================================================================== */
     html.js-ready .reveal-on-scroll {
       opacity: 0;
       transform: translateY(30px);
@@ -580,7 +577,6 @@
       transform: translateY(0);
     }
 
-    /* Section Tag Reveal with subtle scale and neon glow */
     html.js-ready .section-tag.reveal-on-scroll {
       transform: translateY(16px) scale(0.92);
       transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
@@ -593,7 +589,6 @@
       box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
     }
 
-    /* Hero section staggered reveal */
     html.js-ready #home .hero-text .hero-badge.reveal-on-scroll { transition-delay: 0.08s; }
     html.js-ready #home .hero-text p.greeting.reveal-on-scroll { transition-delay: 0.16s; }
     html.js-ready #home .hero-text h1.reveal-on-scroll { transition-delay: 0.24s; }
@@ -610,7 +605,6 @@
       transform: scale(1) translateY(0);
     }
 
-    /* Metric pills staggered spring entrance inside About */
     html.js-ready .about-clean-container:not(.in-view) .metric-pill {
       opacity: 0;
       transform: translateY(18px) scale(0.95);
@@ -625,7 +619,6 @@
     html.js-ready .about-clean-container.in-view .metric-pill:nth-child(3) { transition-delay: 0.32s; }
     html.js-ready .about-clean-container.in-view .metric-pill:nth-child(4) { transition-delay: 0.42s; }
 
-    /* Skills cards staggered slide */
     html.js-ready .skills-main-div.reveal-on-scroll {
       transform: translateY(36px) scale(0.98);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
@@ -637,7 +630,6 @@
     html.js-ready .skills-main-div:nth-of-type(2).reveal-on-scroll { transition-delay: 0.16s; }
     html.js-ready .skills-main-div:nth-of-type(3).reveal-on-scroll { transition-delay: 0.16s; }
 
-    /* Projects 2x2 grid staggered cascade */
     html.js-ready .project-card.reveal-on-scroll {
       transform: translateY(34px) scale(0.97);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
@@ -650,7 +642,6 @@
     html.js-ready .projects-grid .project-card:nth-child(3).reveal-on-scroll { transition-delay: 0.28s; }
     html.js-ready .projects-grid .project-card:nth-child(4).reveal-on-scroll { transition-delay: 0.38s; }
 
-    /* Contact Strip Items staggered spring cascade */
     html.js-ready .contact-strip-item.reveal-on-scroll {
       transform: translateY(28px) scale(0.96);
       transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -663,7 +654,6 @@
     html.js-ready .contacts-bar .contact-strip-item:nth-child(3).reveal-on-scroll { transition-delay: 0.28s; }
     html.js-ready .contacts-bar .contact-strip-item:nth-child(4).reveal-on-scroll { transition-delay: 0.38s; }
 
-    /* Contact Form entrance */
     html.js-ready .contact-form-container.reveal-on-scroll {
       transform: translateY(32px);
       transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
@@ -673,7 +663,6 @@
       transform: translateY(0);
     }
 
-    /* Accessibility: Respect Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       html.js-ready .reveal-on-scroll,
       html.js-ready .section-tag.reveal-on-scroll,
@@ -985,7 +974,6 @@
       color: #ffffff;
     }
 
-    /* Individual Brand Glows on Hover */
     .hability.flutter:hover {
       border-color: #02569B;
       box-shadow: 0 12px 28px rgba(2, 86, 155, 0.4), 0 0 15px rgba(2, 86, 155, 0.2);
@@ -1200,7 +1188,6 @@
       overflow: hidden;
     }
 
-    /* Clean subtle top accent glow */
     .project-card::before {
       content: '';
       position: absolute;
@@ -2453,9 +2440,6 @@
       width: fit-content;
     }
 
-    /* ==========================================================================
-       Light Mode (White Mode / Chic Apple & Linear Style)
-       ========================================================================== */
     body.light-theme,
     html.light-theme body {
       background-color: #f8fafc;
@@ -2923,9 +2907,6 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
-    /* ==========================================================================
-       RTL (Arabic) Mode Support
-       ========================================================================== */
     html[dir="rtl"],
     body.rtl-mode {
       font-family: 'Cairo', 'Red Hat Display', sans-serif;
