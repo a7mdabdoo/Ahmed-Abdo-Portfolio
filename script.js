@@ -23,238 +23,26 @@ if (themeToggleBtn) {
 
 initTheme();
 
-const translations = {
-  en: {
-    nav_home: "Home",
-    nav_about: "About me",
-    nav_skills: "What I Do",
-    nav_projects: "Project",
-    nav_contact: "Contact",
-    nav_cv: "CV / Resume",
-
-    hero_badge: "Software Engineer & Mobile Specialist",
-    hero_greeting_prefix: "Hello",
-    hero_greeting_suffix: ", I'm",
-    hero_name: "Ahmed Mohamed Abdo",
-    hero_subtitle: "Flutter Developer | Front-End & WordPress Developer",
-    hero_desc: "Computer Science & Artificial Intelligence student at South Valley National University (SVNU), Egypt. Dedicated to engineering scalable mobile applications with Clean Architecture and algorithmic problem solving in C++.",
-    hero_btn_contact: "Contact",
-    hero_btn_cv: "Download CV",
-    hero_status: "Available for Tech Roles",
-
-    about_badge: "About Me",
-    about_title_1: "Building Scalable Mobile & Web Systems With ",
-    about_title_2: "Clean Architecture",
-    about_lead_1: "I'm a passionate ",
-    about_lead_2: "Flutter Developer",
-    about_lead_3: " and software engineer currently pursuing my degree in ",
-    about_lead_4: "Computer Science & Artificial Intelligence",
-    about_lead_5: " at South Valley National University (SVNU), Qena, Egypt.",
-    about_p2: "My engineering philosophy merges rigorous computer science theory with production-grade execution: developing scalable cross-platform mobile apps with <strong>Clean Architecture</strong>, modular BLoC/Cubit state management, offline-first caching (Hive), and high-performance algorithms in C++.",
-    about_p3_prefix: "Beyond mobile systems, I design and deploy full-stack <strong>WordPress platforms</strong>—most notably ",
-    about_p3_suffix: "—and actively solve algorithmic problems on Codeforces with <strong>500+ problems solved</strong>.",
-    about_metric_1: "Computer Science & AI",
-    about_metric_2: "Problems Solved (Codeforces C++)",
-    about_metric_3: "<strong>Clean Architecture</strong> &bull; BLoC / Cubit",
-    about_metric_4: "<strong>Production Deployments</strong> &bull; Alfjr & APKPure",
-    about_skills_heading: "Core Technical Stack & Tools:",
-
-    skills_badge: "My Capabilities",
-    skills_title_1: "What ",
-    skills_title_2: "I Do?",
-    skills_card1_title: "Mobile App & Front-End Development",
-    skills_card1_p1: "Building high-performance, cross-platform Android & iOS mobile apps using Flutter & Dart.",
-    skills_card1_p2: "Implementing Clean Architecture (Data, Domain, Presentation) with BLoC and Cubit for scalable state management.",
-    skills_card1_p3: "Integration of offline-first caching (Hive NoSQL), background audio services, REST APIs via Dio, and responsive UIs.",
-    skills_card1_p4: "Smooth 60/120 FPS animations, clean code standards, and production release to stores such as APKPure.",
-
-    skills_card2_title: "Competitive Programming & Algorithmic C++",
-    skills_card2_p1_prefix: "Active problem solver on Codeforces (",
-    skills_card2_p1_suffix: ") with 500+ solved algorithmic challenges.",
-    skills_card2_p2: "Deep mastery of Data Structures: Segment Trees, Disjoint Set Union (DSU), Trees, Graphs, and Hash Maps.",
-    skills_card2_p3: "Algorithmic paradigms: Dynamic Programming, Graph Traversal (BFS/DFS, Dijkstra), Greedy algorithms, and Number Theory.",
-    skills_card2_p4: "Obsession with asymptotic efficiency: writing optimal \\(\\mathcal{O}(N \\log N)\\) code, memory management, and bug-free logic.",
-
-    skills_card3_title: "WordPress Development & Web Platforms",
-    skills_card3_p1: "Full-cycle custom WordPress development, theme customization, and educational academy architectures.",
-    skills_card3_p2_prefix: "Architected and launched ",
-    skills_card3_p2_suffix: ": a fully operational e-learning academy.",
-    skills_card3_p3: "WooCommerce e-commerce store implementation, custom payment gateways, LMS setups, and student portals.",
-    skills_card3_p4: "On-page SEO optimization, responsive layout precision, caching, CDN delivery, and page speed tuning.",
-
-    projects_badge: "Featured Portfolio",
-    projects_title_1: "Featured ",
-    projects_title_2: "Projects",
-    projects_subtitle: "A selection of production-ready mobile apps, live web portals, and software engineering work.",
-
-    p1_category: "Production Mobile App",
-    p1_title: "جامع تلاوات المنشاوي (Al-Minshawi App)",
-    p1_desc: "High-performance Flutter Quran audio application dedicated to Sheikh Mohamed Siddiq El-Minshawi. Features seamless background audio playback (audio_service), precision A-B repeat looping, offline-first caching via Hive NoSQL, and Clean Architecture with Cubit.",
-    p1_btn_screens: "Browse Screenshots (5)",
-
-    p2_category: "Live E-Learning Platform",
-    p2_title: "Alfjr Academy (أكاديمية الفجر)",
-    p2_desc: "Full-scale educational platform deployed for real students. Built on custom WordPress architecture with WooCommerce integration, course dashboards, interactive assessments, high-speed caching, and complete on-page SEO optimization.",
-    p2_btn_visit: "Visit Live Platform",
-
-    p3_category: "Mobile Architecture",
-    p3_title: "Multi-Vendor E-Commerce App",
-    p3_desc: "Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering, dynamic cart state management with BLoC, authentication flow, and robust REST API data integration with Dio.",
-    p3_btn_screens: "Browse Screenshots (6)",
-
-    p4_category: "Competitive Programming",
-    p4_title: "Algorithms & Problem Solving",
-    p4_desc_prefix: "Active competitive programming profile on Codeforces (",
-    p4_desc_suffix: "). Repository of 500+ solved algorithmic challenges in C++20 covering Graph Algorithms, Dynamic Programming, Segment Trees, and Number Theory.",
-    p4_btn_profile: "View Codeforces Profile",
-
-    contact_badge: "Let's Connect",
-    contact_title_1: "Get In ",
-    contact_title_2: "Touch",
-    contact_sub1: "Ready to get started on your project?",
-    contact_sub2: "Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.",
-    contact_lbl_email: "Email",
-    contact_lbl_whatsapp: "WhatsApp",
-    contact_lbl_codeforces: "Codeforces",
-    contact_lbl_resume: "Resume",
-    contact_val_download_cv: "Download CV",
-
-    contact_form_heading: "Send a message to get started",
-    contact_lbl_name: "Your Name",
-    ph_name: "Ahmed Mohamed",
-    contact_lbl_email_field: "Your Email Address",
-    ph_email: "name@example.com",
-    contact_lbl_msg: "Your Message",
-    ph_msg: "Describe your project, role, or collaboration inquiry...",
-    contact_btn_send: "Send Message",
-    contact_success_msg: "Thank you! Your message has been sent successfully.",
-
-    footer_p_prefix: "This website was made with",
-    footer_p_suffix: "by Ahmed Mohamed Abdo",
-
-    modal_minshawi_subtitle: "Production Flutter Mobile Application",
-    modal_ecom_subtitle: "Production-Grade Clean Architecture App",
-    modal_download_apk: "Download APKPure",
-    modal_repo: "Repository"
-  },
-  ar: {
-    nav_home: "الرئيسية",
-    nav_about: "من أنا",
-    nav_skills: "مجالات خبرتي",
-    nav_projects: "المشاريع",
-    nav_contact: "تواصل معي",
-    nav_cv: "السيرة الذاتية",
-
-    hero_badge: "مهندس برمجيات ومطور تطبيقات جوال",
-    hero_greeting_prefix: "مرحباً",
-    hero_greeting_suffix: "، أنا",
-    hero_name: "أحمد محمد عبده",
-    hero_subtitle: "مطور فلاتر | مطور واجهات أمامية وووردبريس",
-    hero_desc: "طالب علوم الحاسب والذكاء الاصطناعي بجامعة جنوب الوادي الأهلية، مصر. متخصص في تطوير تطبيقات الجوال القابلة للتوسع باستخدام Clean Architecture وحل المسائل الخوارزمية بلغة ++C.",
-    hero_btn_contact: "تواصل معي",
-    hero_btn_cv: "تحميل السيرة الذاتية",
-    hero_status: "متاح لفرص العمل والمشاريع",
-
-    about_badge: "نبذة عني",
-    about_title_1: "بناء تطبيقات وأنظمة ويب قابلة للتوسع بـ ",
-    about_title_2: "Clean Architecture",
-    about_lead_1: "أنا مهندس برمجيات و",
-    about_lead_2: "مطور فلاتر",
-    about_lead_3: " شغوف، أدرس حالياً ",
-    about_lead_4: "علوم الحاسب والذكاء الاصطناعي",
-    about_lead_5: " بجامعة جنوب الوادي الأهلية (SVNU)، قنا، مصر.",
-    about_p2: "تعتمد فلسفتي الهندسية على دمج علوم الحاسب الأكاديمية الصارمة مع معايير الإنتاج الاحترافية: تطوير تطبيقات جوال هجينة عالية الأداء باستخدام <strong>Clean Architecture</strong>، وإدارة الحالة المرنة عبر BLoC / Cubit، والتخزين المحلي دون إنترنت (Hive NoSQL)، وتصميم الخوارزميات الفعالة بلغة ++C.",
-    about_p3_prefix: "إلى جانب أنظمة الجوال، أصمم وأنشر منصات ووردبريس متكاملة—أبرزها ",
-    about_p3_suffix: "—كما أحل المسائل الخوارزمية بنشاط على منصة Codeforces بأكثر من 500 مسألة تم حلها بنجاح.",
-    about_metric_1: "علوم الحاسب والذكاء الاصطناعي",
-    about_metric_2: "مسألة محلولة (كودفورسيز ++C)",
-    about_metric_3: "<strong>Clean Architecture</strong> &bull; BLoC / Cubit",
-    about_metric_4: "<strong>مشاريع في الإنتاج</strong> &bull; الفجر و APKPure",
-    about_skills_heading: "التقنيات والأدوات الأساسية:",
-
-    skills_badge: "قدراتي التقنية",
-    skills_title_1: "ماذا ",
-    skills_title_2: "أقدم؟",
-    skills_card1_title: "تطوير تطبيقات الجوال والواجهات الأمامية",
-    skills_card1_p1: "بناء تطبيقات عالية الأداء تعمل على Android و iOS باستخدام Flutter و Dart.",
-    skills_card1_p2: "تطبيق معمارية الكود النظيف (Clean Architecture) وفصل الطبقات مع BLoC و Cubit لإدارة مرنة ومستقرة للحالة.",
-    skills_card1_p3: "دمج قواعد البيانات المحلية (Hive NoSQL) للعمل دون إنترنت، خدمات الصوت بالخلفية، واجهات برمجة التطبيقات (REST APIs) عبر Dio، وتصاميم عصرية متجاوبة.",
-    skills_card1_p4: "أنيميشن فائق السلاسة (60/120 إطاراً بالثانية)، معايير كود نظيفة، وخبرة نشر التطبيقات على المتاجر ومنصات مثل APKPure.",
-
-    skills_card2_title: "البرمجة التنافسية وحل المشكلات بلغة ++C",
-    skills_card2_p1_prefix: "ممارس نشط لحل المشكلات على منصة كودفورسيز (",
-    skills_card2_p1_suffix: ") بأكثر من 500 مسألة خوارزمية تم حلها.",
-    skills_card2_p2: "إتقان متقدم لهياكل البيانات المعقدة: Segment Trees، و Disjoint Set Union (DSU)، والأشجار، والرسوم البيانية (Graphs)، وجداول الهاش.",
-    skills_card2_p3: "نماذج خوارزمية متقدمة: البرمجة الديناميكية (Dynamic Programming)، والبحث في الرسوم البيانية (BFS/DFS, Dijkstra)، والخوارزميات الجشعة (Greedy)، ونظرية الأعداد.",
-    skills_card2_p4: "اهتمام دقيق بالكفاءة الزمنية والمكانية: كتابة كود بأمثل تعقيد حسابي O(N log N)، وإدارة استهلاك الذاكرة، ومنطق خالٍ تماماً من الأخطاء.",
-
-    skills_card3_title: "تطوير مواقع ووردبريس والمنصات التعليمية",
-    skills_card3_p1: "تطوير شامل ومخصص لمواقع ووردبريس، وتخصيص القوالب البرمجية، وهندسة الأكاديميات التعليمية الإلكترونية.",
-    skills_card3_p2_prefix: "تصميم وتطوير وإطلاق ",
-    skills_card3_p2_suffix: ": منصة تعليمية إلكترونية متكاملة تخدم طلاباً حقيقيين بفاعلية.",
-    skills_card3_p3: "إنشاء متاجر إلكترونية عبر WooCommerce، وربط بوابات الدفع الإلكتروني، وأنظمة إدارة التعلم (LMS) ولوحات تحكم الطلاب.",
-    skills_card3_p4: "تحسين محركات البحث الداخلي (On-page SEO)، ودقة التصاميم المتجاوبة، وحلول التخزين المؤقت وشبكات CDN لسرعة تصفح فائقة.",
-
-    projects_badge: "معرض الأعمال المختار",
-    projects_title_1: "المشاريع ",
-    projects_title_2: "المميزة",
-    projects_subtitle: "مجموعة مختارة من تطبيقات الجوال الجاهزة للإنتاج، والمنصات الحية، وأعمال الهندسة البرمجية.",
-
-    p1_category: "تطبيق جوال في الإنتاج",
-    p1_title: "جامع تلاوات المنشاوي (Al-Minshawi App)",
-    p1_desc: "تطبيق قرآني متطور بلغة Flutter مخصص لتلاوات الشيخ محمد صديق المنشاوي. يتميز بتشغيل الصوت المستمر في الخلفية (audio_service)، وتكرار الآيات والفقرات بدقة (A-B Repeat)، والتخزين المحلي دون إنترنت (Hive NoSQL)، وتطبيق Clean Architecture مع Cubit.",
-    p1_btn_screens: "معاينة لقطات الشاشة (5)",
-
-    p2_category: "منصة تعليمية إلكترونية حية",
-    p2_title: "أكاديمية الفجر (Alfjr Academy)",
-    p2_desc: "منصة تعليمية إلكترونية شاملة مبنية لخدمة طلاب فعليين. طُوّرت ببنية ووردبريس مخصصة مع متجر WooCommerce، ولوحات تحكم للمقررات، واختبارات تفاعلية، وسرعة استجابة استثنائية مع سيو متكامل.",
-    p2_btn_visit: "زيارة المنصة الحية",
-
-    p3_category: "معمارية تطبيقات جوال",
-    p3_title: "تطبيق متجر إلكتروني متعدد التجار",
-    p3_desc: "تطبيق تجارة إلكترونية متكامل ومبني بفلاتر وأعلى معايير الـ Clean Architecture. يتضمن تصفح المنتجات وتصنيفها، وإدارة سلة الشراء التفاعلية عبر BLoC، وتوثيق المستخدمين وربط REST APIs بواسطة Dio.",
-    p3_btn_screens: "معاينة لقطات الشاشة (6)",
-
-    p4_category: "البرمجة التنافسية",
-    p4_title: "الخوارزميات وحل المشكلات",
-    p4_desc_prefix: "ملف نشط للبرمجة التنافسية على كودفورسيز (",
-    p4_desc_suffix: "). مستودع يضم أكثر من 500 مسألة محلولة بلغة ++C20 تغطي خوارزميات الرسوم البيانية، والبرمجة الديناميكية، وSegment Trees، ونظرية الأعداد.",
-    p4_btn_profile: "عرض الملف على Codeforces",
-
-    contact_badge: "تواصل معي",
-    contact_title_1: "دعنا ",
-    contact_title_2: "نتحدث",
-    contact_sub1: "هل أنت جاهز لبدء مشروعك القادم؟",
-    contact_sub2: "تواصل معي الآن لمناقشة فرص العمل في تطوير الجوال، أو التعاون في المشاريع البرمجية الحرة، أو التحديات الخوارزمية.",
-    contact_lbl_email: "البريد الإلكتروني",
-    contact_lbl_whatsapp: "واتساب",
-    contact_lbl_codeforces: "كودفورسيز",
-    contact_lbl_resume: "السيرة الذاتية",
-    contact_val_download_cv: "تحميل السيرة الذاتية",
-
-    contact_form_heading: "أرسل رسالة للبدء مباشرة",
-    contact_lbl_name: "الاسم الكريم",
-    ph_name: "أحمد محمد",
-    contact_lbl_email_field: "البريد الإلكتروني",
-    ph_email: "name@example.com",
-    contact_lbl_msg: "رسالتك",
-    ph_msg: "اكتب تفاصيل مشروعك أو استفسارك هنا...",
-    contact_btn_send: "إرسال الرسالة",
-    contact_success_msg: "شكراً لك! تم استلام رسالتك بنجاح وسأتواصل معك قريباً.",
-
-    footer_p_prefix: "تم تصميم وتطوير هذا الموقع بكل",
-    footer_p_suffix: "بواسطة أحمد محمد عبده",
-
-    modal_minshawi_subtitle: "تطبيق جوال فلاتر جاهز للإنتاج",
-    modal_ecom_subtitle: "تطبيق فلاتر احترافي بـ Clean Architecture",
-    modal_download_apk: "تحميل من APKPure",
-    modal_repo: "المستودع البرمجي"
-  }
-};
-
+const translationsCache = {};
 let currentLang = localStorage.getItem('lang') || 'en';
 
-function setLanguage(lang) {
+async function fetchTranslation(lang) {
+  if (translationsCache[lang]) {
+    return translationsCache[lang];
+  }
+  try {
+    const response = await fetch(`locales/${lang}.json`);
+    if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+    const data = await response.json();
+    translationsCache[lang] = data;
+    return data;
+  } catch (err) {
+    console.warn(`Could not load locales/${lang}.json:`, err);
+    return null;
+  }
+}
+
+async function setLanguage(lang) {
   currentLang = (lang === 'ar') ? 'ar' : 'en';
   localStorage.setItem('lang', currentLang);
   document.documentElement.setAttribute('lang', currentLang);
@@ -278,12 +66,13 @@ function setLanguage(lang) {
     langToggleBtn.setAttribute('aria-label', isRtl ? 'Switch to English' : 'Switch to Arabic');
   }
 
-  const dict = translations[currentLang] || translations.en;
+  const dict = await fetchTranslation(currentLang);
+  if (!dict) return;
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key] !== undefined) {
-      if (dict[key].includes('<')) {
+      if (typeof dict[key] === 'string' && dict[key].includes('<')) {
         el.innerHTML = dict[key];
       } else {
         el.textContent = dict[key];
@@ -310,6 +99,8 @@ if (langToggleBtn) {
 }
 
 setLanguage(currentLang);
+fetchTranslation('en');
+fetchTranslation('ar');
 
     const menuBtn = document.getElementById('menu-btn');
     const menuIcon = document.getElementById('menu-icon');
@@ -469,7 +260,9 @@ setLanguage(currentLang);
       submitBtn.disabled = true;
       submitBtn.style.opacity = '0.75';
       const originalBtnHTML = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<span></span><span></span><span></span><span></span><i class="fa-solid fa-spinner fa-spin mr-2"></i> Sending...';
+      const dict = translationsCache[currentLang];
+      const sendingText = (dict && dict.contact_sending) || (currentLang === 'ar' ? 'جاري الإرسال...' : 'Sending...');
+      submitBtn.innerHTML = `<span></span><span></span><span></span><span></span><i class="fa-solid fa-spinner fa-spin mr-2"></i> ${sendingText}`;
 
       feedback.classList.add('hidden');
 
@@ -496,17 +289,17 @@ setLanguage(currentLang);
           form.reset();
           feedback.className = 'mt-4 p-4 rounded-xl text-center font-semibold text-base text-[var(--green)] bg-[#212121] border border-[var(--green)]/30';
           feedbackIcon.className = 'fa-solid fa-check-circle mr-2';
-          feedbackText.textContent = currentLang === 'ar'
+          feedbackText.textContent = (dict && dict.contact_feedback_success) || (currentLang === 'ar'
             ? 'شكراً لك! تم استلام رسالتك بنجاح وسأتواصل معك قريباً.'
-            : 'Thank you! Your message has been sent successfully. I will get back to you soon.';
+            : 'Thank you! Your message has been sent successfully. I will get back to you soon.');
           feedback.classList.remove('hidden');
         } else if (data.message && data.message.includes('Activation')) {
           form.reset();
           feedback.className = 'mt-4 p-4 rounded-xl text-center font-semibold text-base text-yellow-300 bg-[#212121] border border-yellow-500/30';
           feedbackIcon.className = 'fa-solid fa-envelope mr-2';
-          feedbackText.textContent = currentLang === 'ar'
+          feedbackText.textContent = (dict && dict.contact_feedback_activation) || (currentLang === 'ar'
             ? 'تم إرسال رسالة تفعيل إلى البريد الإلكتروني. يرجى التحقق من صندوق الوارد والضغط على تفعيل.'
-            : 'Activation email sent to ahmed@mohamed-abdo.me. Please check your inbox and click activate to enable direct messages.';
+            : 'Activation email sent to ahmed@mohamed-abdo.me. Please check your inbox and click activate to enable direct messages.');
           feedback.classList.remove('hidden');
         } else {
           throw new Error(data.message || 'Submission failed');
@@ -514,9 +307,9 @@ setLanguage(currentLang);
       } catch (err) {
         feedback.className = 'mt-4 p-4 rounded-xl text-center font-semibold text-base text-red-400 bg-[#212121] border border-red-500/30';
         feedbackIcon.className = 'fa-solid fa-circle-exclamation mr-2';
-        feedbackText.textContent = currentLang === 'ar'
+        feedbackText.textContent = (dict && dict.contact_feedback_error) || (currentLang === 'ar'
           ? 'تعذر إرسال الرسالة مباشرة. يُرجى مراسلتي عبر البريد ahmed@mohamed-abdo.me'
-          : 'Unable to send message directly. Please contact me at ahmed@mohamed-abdo.me';
+          : 'Unable to send message directly. Please contact me at ahmed@mohamed-abdo.me');
         feedback.classList.remove('hidden');
       } finally {
         submitBtn.disabled = false;
@@ -527,13 +320,6 @@ setLanguage(currentLang);
 
     let currentScreenshotIdx = 1;
     const totalScreenshots = 5;
-    const minshawiCaptionsAr = [
-      "الرئيسية (الوضع الليلي)",
-      "الرئيسية (الوضع النهاري)",
-      "مشغل التلاوات المتقدم",
-      "تكرار الحفظ (A-B Repeat)",
-      "قوائم التشغيل المخصصة"
-    ];
     const minshawiCaptionsEn = [
       "Home Screen (Dark Theme)",
       "Home Screen (Light Theme)",
@@ -563,13 +349,13 @@ setLanguage(currentLang);
       currentScreenshotIdx = index;
       const img = document.getElementById('activeScreenshotImg');
       if (img) img.src = `assests/screenshot_${index}.png`;
-      const captions = currentLang === 'ar' ? minshawiCaptionsAr : minshawiCaptionsEn;
+      const dict = translationsCache[currentLang];
+      const captions = (dict && dict.minshawi_captions) || minshawiCaptionsEn;
       const title = captions[index - 1] || `Screenshot ${index}`;
       const counterEl = document.getElementById('screenCounter');
       if (counterEl) {
-        counterEl.textContent = currentLang === 'ar'
-          ? `${title} (${index} من ${totalScreenshots})`
-          : `${title} (${index}/${totalScreenshots})`;
+        const separator = (dict && dict.modal_counter_of) || (currentLang === 'ar' ? 'من' : '/');
+        counterEl.textContent = `${title} (${index} ${separator} ${totalScreenshots})`;
       }
 
       document.querySelectorAll('.thumb-item').forEach((thumb, idx) => {
@@ -613,14 +399,6 @@ setLanguage(currentLang);
       "Vendor-Grouped Cart with Subtotals",
       "Order Confirmation & Checkout Receipt"
     ];
-    const ecomCaptionsAr = [
-      "الرئيسية والمتاجر المميزة (الوضع الليلي)",
-      "الرئيسية ودليل المنتجات (الوضع النهاري)",
-      "البحث المباشر وتصفية الفئات",
-      "دليل المتاجر المعتمدة للبائعين",
-      "سلة الشراء المصنفة حسب المتجر",
-      "تأكيد الطلب وإيصال الدفع"
-    ];
 
     function openEcomModal(index = 1) {
       setEcomScreenshot(index);
@@ -643,13 +421,13 @@ setLanguage(currentLang);
       currentEcomIdx = index;
       const img = document.getElementById('activeEcomImg');
       if (img) img.src = ecomFiles[index - 1];
-      const captions = currentLang === 'ar' ? ecomCaptionsAr : ecomCaptionsEn;
+      const dict = translationsCache[currentLang];
+      const captions = (dict && dict.ecom_captions) || ecomCaptionsEn;
       const title = captions[index - 1] || `Screenshot ${index}`;
       const counterEl = document.getElementById('ecomCounter');
       if (counterEl) {
-        counterEl.textContent = currentLang === 'ar'
-          ? `${title} (${index} من ${totalEcomScreens})`
-          : `${title} (${index}/${totalEcomScreens})`;
+        const separator = (dict && dict.modal_counter_of) || (currentLang === 'ar' ? 'من' : '/');
+        counterEl.textContent = `${title} (${index} ${separator} ${totalEcomScreens})`;
       }
 
       document.querySelectorAll('.ecom-thumb-item').forEach((thumb, idx) => {
