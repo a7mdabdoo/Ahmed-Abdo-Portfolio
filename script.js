@@ -49,11 +49,13 @@ async function setLanguage(lang) {
 
   const isRtl = currentLang === 'ar';
   if (isRtl) {
-    document.documentElement.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('dir', 'ltr');
+    document.body.setAttribute('dir', 'rtl');
     document.documentElement.classList.add('rtl-mode');
     document.body.classList.add('rtl-mode');
   } else {
     document.documentElement.setAttribute('dir', 'ltr');
+    document.body.setAttribute('dir', 'ltr');
     document.documentElement.classList.remove('rtl-mode');
     document.body.classList.remove('rtl-mode');
   }
@@ -555,7 +557,7 @@ fetchTranslation('ar');
           this.vx = (Math.random() - 0.5) * 1.2;
           this.vy = (Math.random() - 0.5) * 1.2;
           this.radius = Math.random() * 2 + 1;
-          this.color = Math.random() > 0.4 ? '#8b5cf6' : '#ffffff';
+          this.color = Math.random() > 0.4 ? '#b31b38' : '#ffffff';
           this.baseAlpha = Math.random() * 0.4 + 0.2;
         }
 
@@ -584,7 +586,7 @@ fetchTranslation('ar');
           const isLight = document.body.classList.contains('light-theme');
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.fillStyle = isLight ? '#7c3aed' : this.color;
+          ctx.fillStyle = isLight ? '#800020' : this.color;
           ctx.globalAlpha = isLight ? (this.baseAlpha * 0.45) : this.baseAlpha;
           ctx.fill();
         }
@@ -608,7 +610,7 @@ fetchTranslation('ar');
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = isLight ? '#7c3aed' : '#8b5cf6';
+              ctx.strokeStyle = isLight ? '#800020' : '#b31b38';
               ctx.globalAlpha = (1 - dist / maxDist) * (isLight ? 0.12 : 0.22);
               ctx.lineWidth = 0.8;
               ctx.stroke();
