@@ -32,7 +32,7 @@
       }
       if (localStorage.getItem('lang') === 'ar') {
         document.documentElement.setAttribute('lang', 'ar');
-        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('dir', 'ltr');
         document.documentElement.classList.add('rtl-mode');
       }
     })();
@@ -44,7 +44,7 @@
 <body>
   <script>
     if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
-    if (localStorage.getItem('lang') === 'ar') document.body.classList.add('rtl-mode');
+    if (localStorage.getItem('lang') === 'ar') { document.body.classList.add('rtl-mode'); document.body.setAttribute('dir', 'rtl'); }
   </script>
 
   <header class="header-fixed">
@@ -87,10 +87,12 @@
 
   <main class="main-container">
 
-    <div class="ambient-glow glow-1" aria-hidden="true"></div>
-    <div class="ambient-glow glow-2" aria-hidden="true"></div>
-    <div class="ambient-glow glow-3" aria-hidden="true"></div>
-    <div class="ambient-glow glow-4" aria-hidden="true"></div>
+    <div class="ambient-glows-container" aria-hidden="true">
+      <div class="ambient-glow glow-1"></div>
+      <div class="ambient-glow glow-2"></div>
+      <div class="ambient-glow glow-3"></div>
+      <div class="ambient-glow glow-4"></div>
+    </div>
 
     <section id="home">
       <div class="hero-text">
@@ -251,7 +253,7 @@
       <div class="skills-main-div">
         <div class="skills-image-div">
           <div class="skills-icon-badge">
-            <i class="fa-solid fa-mobile-screen text-7xl text-[var(--green)]"></i>
+            <i class="fa-solid fa-mobile-screen text-5xl text-[var(--green)]"></i>
           </div>
         </div>
         <div class="skills-text-div">
@@ -289,7 +291,7 @@
       <div class="skills-main-div reverse">
         <div class="skills-image-div">
           <div class="skills-icon-badge">
-            <i class="fa-solid fa-brain text-7xl text-[var(--green)]"></i>
+            <i class="fa-solid fa-brain text-5xl text-[var(--green)]"></i>
           </div>
         </div>
         <div class="skills-text-div">
@@ -326,7 +328,7 @@
       <div class="skills-main-div">
         <div class="skills-image-div">
           <div class="skills-icon-badge">
-            <i class="fa-brands fa-wordpress text-7xl text-[var(--green)]"></i>
+            <i class="fa-brands fa-wordpress text-5xl text-[var(--green)]"></i>
           </div>
         </div>
         <div class="skills-text-div">
@@ -534,7 +536,7 @@
         <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact_badge">Let's Connect</span></span>
         <h2><span data-i18n="contact_title_1">Get In </span><span data-i18n="contact_title_2">Touch</span></h2>
         <p data-i18n="contact_sub1">Ready to get started on your project?</p>
-        <p class="!text-slate-300 !font-normal !text-base mt-2" data-i18n="contact_sub2">Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.</p>
+        <p class="contact-sub-lead !font-normal !text-base mt-2" data-i18n="contact_sub2">Contact me now for mobile engineering opportunities, freelance collaborations, or algorithmic challenges.</p>
       </header>
 
       <div class="contacts-bar">
