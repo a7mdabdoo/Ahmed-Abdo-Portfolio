@@ -141,7 +141,14 @@ const bundledTranslations = {
     "دليل المتاجر وصفحات البائعين",
     "سلة المشتريات مجمعة حسب المتجر",
     "إتمام الطلب وتأكيد عملية الشراء"
-  ]
+  ],
+  "p1_tab_title": "جامع تلاوات المنشاوي",
+  "p2_tab_title": "أكاديمية الفجر",
+  "p3_tab_title": "متجر إلكتروني",
+  "p4_tab_title": "البرمجة التنافسية",
+  "projects_nav_prev": "المشروع السابق",
+  "projects_nav_next": "المشروع التالي",
+  "projects_nav_hint": "استخدم الأسهم ← → للتنقل"
 },
   en: {
   "nav_home": "Home",
@@ -260,7 +267,14 @@ const bundledTranslations = {
     "Verified Vendor Storefront Directory",
     "Vendor-Grouped Cart with Subtotals",
     "Order Confirmation & Checkout Receipt"
-  ]
+  ],
+  "p1_tab_title": "Al-Minshawi Quran",
+  "p2_tab_title": "Alfjr Academy",
+  "p3_tab_title": "E-Commerce App",
+  "p4_tab_title": "Algorithms & C++",
+  "projects_nav_prev": "Previous Project",
+  "projects_nav_next": "Next Project",
+  "projects_nav_hint": "Use ← → arrow keys"
 }
 };
 
@@ -766,18 +780,123 @@ fetchTranslation('ar');
       ecomModalElem.addEventListener('touchend', (e) => handleTouchEnd(e, true), { passive: true });
     }
 
-    window.addEventListener('keydown', (e) => {
+    
+    let currentProjectIdx = 0;
+    const totalProjects = 4;
+
+    function goToProject(index) {
+      if (index < 0) index = totalProjects - 1;
+      if (index >= totalProjects) index = 0;
+      currentProjectIdx = index;
+
+      document.querySelectorAll('.project-tab-btn').forEach((btn, idx) => {
+        const isActive = idx === index;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      document.querySelectorAll('.project-panel').forEach((panel, idx) => {
+        panel.classList.toggle('active', idx === index);
+      });
+
+      document.querySelectorAll('.project-dots .dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === index);
+      });
+
+      const counterEl = document.getElementById('projectIndexCounter');
+      if (counterEl) {
+        const curSpan = counterEl.querySelector('.current');
+        if (curSpan) curSpan.textContent = String(index + 1).padStart(2, '0');
+      }
+
+      const activeTab = document.querySelector(`.project-tab-btn[data-project-idx="${index}"]`);
+      if (activeTab && typeof activeTab.scrollIntoView === 'function') {
+        activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
+    function nextProject() {
+      goToProject(currentProjectIdx + 1);
+    }
+
+    function prevProject() {
+      goToProject(currentProjectIdx - 1);
+    }
+
+    document.querySelectorAll('.project-tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const idx = Number(this.getAttribute('data-project-idx'));
+        if (!isNaN(idx)) goToProject(idx);
+      });
+    });
+
+    document.querySelectorAll('.project-dots .dot').forEach(dot => {
+      dot.addEventListener('click', function() {
+        const idx = Number(this.getAttribute('data-dot-idx'));
+        if (!isNaN(idx)) goToProject(idx);
+      });
+    });
+
+    const projPrevBtn = document.getElementById('projPrevBtn');
+    const projNextBtn = document.getElementById('projNextBtn');
+    if (projPrevBtn) projPrevBtn.addEventListener('click', prevProject);
+    if (projNextBtn) projNextBtn.addEventListener('click', nextProject);
+
+    const showcaseEl = document.getElementById('projectsShowcase');
+    if (showcaseEl) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      showcaseEl.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      showcaseEl.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        const diffX = touchStartX - e.changedTouches[0].clientX;
+        const diffY = touchStartY - e.changedTouches[0].clientY;
+        if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY)) {
+          const isRtl = document.body.getAttribute('dir') === 'rtl' || document.body.classList.contains('rtl-mode');
+          if (diffX > 0) {
+            if (isRtl) prevProject();
+            else nextProject();
+          } else {
+            if (isRtl) nextProject();
+            else prevProject();
+          }
+        }
+      }, { passive: true });
+    }
+
+window.addEventListener('keydown', (e) => {
       const modal = document.getElementById('screenshotModal');
-      if (modal && modal.classList.contains('active')) {
+      const isModalActive = modal && modal.classList.contains('active');
+      if (isModalActive) {
         if (e.key === 'Escape') closeModalDirect();
         if (e.key === 'ArrowRight') nextScreenshot();
         if (e.key === 'ArrowLeft') prevScreenshot();
+        return;
       }
       const ecomModal = document.getElementById('ecomModal');
-      if (ecomModal && ecomModal.classList.contains('active')) {
+      const isEcomActive = ecomModal && ecomModal.classList.contains('active');
+      if (isEcomActive) {
         if (e.key === 'Escape') closeEcomDirect();
         if (e.key === 'ArrowRight') nextEcomScreenshot();
         if (e.key === 'ArrowLeft') prevEcomScreenshot();
+        return;
+      }
+
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+      const isRtl = document.body.getAttribute('dir') === 'rtl' || document.body.classList.contains('rtl-mode');
+      if (e.key === 'ArrowRight') {
+        if (isRtl) prevProject();
+        else nextProject();
+      } else if (e.key === 'ArrowLeft') {
+        if (isRtl) nextProject();
+        else prevProject();
       }
     });
 

@@ -370,164 +370,233 @@
         <p data-i18n="projects_subtitle">A selection of production-ready mobile apps, live web portals, and software engineering work.</p>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-tabs-nav" role="tablist" aria-label="Projects Showcase Tabs">
+        <button type="button" class="project-tab-btn active" role="tab" aria-selected="true" data-project-idx="0">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <span class="tab-num">01.</span>
+          <span class="tab-label" data-i18n="p1_tab_title">جامع تلاوات المنشاوي</span>
+        </button>
+        <button type="button" class="project-tab-btn" role="tab" aria-selected="false" data-project-idx="1">
+          <i class="fa-solid fa-globe"></i>
+          <span class="tab-num">02.</span>
+          <span class="tab-label" data-i18n="p2_tab_title">أكاديمية الفجر</span>
+        </button>
+        <button type="button" class="project-tab-btn" role="tab" aria-selected="false" data-project-idx="2">
+          <i class="fa-solid fa-layer-group"></i>
+          <span class="tab-num">03.</span>
+          <span class="tab-label" data-i18n="p3_tab_title">متجر إلكتروني</span>
+        </button>
+        <button type="button" class="project-tab-btn" role="tab" aria-selected="false" data-project-idx="3">
+          <i class="fa-solid fa-terminal"></i>
+          <span class="tab-num">04.</span>
+          <span class="tab-label" data-i18n="p4_tab_title">البرمجة التنافسية</span>
+        </button>
+      </div>
 
-        <div class="project-card featured-card">
-          <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-mobile-screen text-[var(--green)]"></i> <span data-i18n="p1_category">Production Mobile App</span></span>
-            <div class="project-links">
-              <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" rel="noopener noreferrer" title="Download on APKPure" aria-label="APKPure">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+      <div class="projects-showcase-container" id="projectsShowcase">
+
+        <div class="project-panel active" data-panel-idx="0" role="tabpanel">
+          <div class="project-card featured-card showcase-mode">
+            <div class="project-card-header">
+              <div class="project-header-meta">
+                <span class="project-category"><i class="fa-solid fa-mobile-screen text-[var(--green)]"></i> <span data-i18n="p1_category">Production Mobile App</span></span>
+                <span class="project-pill-badge">01 / 04</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" rel="noopener noreferrer" title="Download on APKPure" aria-label="APKPure">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="project-body">
-            <h3 data-i18n="p1_title">جامع تلاوات المنشاوي (Al-Minshawi App)</h3>
-            <p data-i18n="p1_desc">
-              High-performance Flutter Quran audio application dedicated to Sheikh Mohamed Siddiq El-Minshawi.
-              Features seamless background audio playback (audio_service), precision A-B repeat looping, offline-first caching via Hive NoSQL,
-              and Clean Architecture with Cubit.
-            </p>
+            <div class="project-body">
+              <h3 data-i18n="p1_title">جامع تلاوات المنشاوي (Al-Minshawi App)</h3>
+              <p data-i18n="p1_desc">
+                High-performance Flutter Quran audio application dedicated to Sheikh Mohamed Siddiq El-Minshawi.
+                Features seamless background audio playback (audio_service), precision A-B repeat looping, offline-first caching via Hive NoSQL,
+                and Clean Architecture with Cubit.
+              </p>
 
-            <div class="project-actions">
-              <button type="button" class="btn-preview primary" onclick="openScreenshotsModal(1)">
-                <i class="fa-solid fa-images"></i>
-                <span data-i18n="p1_btn_screens">Browse Screenshots (5)</span>
-              </button>
-              <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" rel="noopener noreferrer" class="btn-preview">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
-              </a>
-              <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" rel="noopener noreferrer" class="btn-preview">
-                <i class="fa-solid fa-download"></i>
-                <span>APKPure</span>
-              </a>
+              <div class="project-actions">
+                <button type="button" class="btn-preview primary" onclick="openScreenshotsModal(1)">
+                  <i class="fa-solid fa-images"></i>
+                  <span data-i18n="p1_btn_screens">Browse Screenshots (5)</span>
+                </button>
+                <a href="https://github.com/a7mdabdoo/minshawi-recitations-app" target="_blank" rel="noopener noreferrer" class="btn-preview">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://apkpure.com/p/com.minshawi.recitations" target="_blank" rel="noopener noreferrer" class="btn-preview">
+                  <i class="fa-solid fa-download"></i>
+                  <span>APKPure</span>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="tech-list-inline">
-            <span>Flutter</span>
-            <span>Dart</span>
-            <span>Clean Arch</span>
-            <span>Cubit</span>
-            <span>Hive NoSQL</span>
-            <span>audio_service</span>
+            <div class="tech-list-inline">
+              <span>Flutter</span>
+              <span>Dart</span>
+              <span>Clean Arch</span>
+              <span>Cubit</span>
+              <span>Hive NoSQL</span>
+              <span>audio_service</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-globe text-[var(--green)]"></i> <span data-i18n="p2_category">Live E-Learning Platform</span></span>
-            <div class="project-links">
-              <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" title="Visit Live Platform" aria-label="Live Demo">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+        <div class="project-panel" data-panel-idx="1" role="tabpanel">
+          <div class="project-card showcase-mode">
+            <div class="project-card-header">
+              <div class="project-header-meta">
+                <span class="project-category"><i class="fa-solid fa-globe text-[var(--green)]"></i> <span data-i18n="p2_category">Live E-Learning Platform</span></span>
+                <span class="project-pill-badge">02 / 04</span>
+              </div>
+              <div class="project-links">
+                <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" title="Visit Live Platform" aria-label="Live Demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="project-body">
-            <h3 data-i18n="p2_title">Alfjr Academy (أكاديمية الفجر)</h3>
-            <p data-i18n="p2_desc">
-              Full-scale educational platform deployed for real students. Built on custom WordPress architecture with WooCommerce integration,
-              course dashboards, interactive assessments, high-speed caching, and complete on-page SEO optimization.
-            </p>
+            <div class="project-body">
+              <h3 data-i18n="p2_title">Alfjr Academy (أكاديمية الفجر)</h3>
+              <p data-i18n="p2_desc">
+                Full-scale educational platform deployed for real students. Built on custom WordPress architecture with WooCommerce integration,
+                course dashboards, interactive assessments, high-speed caching, and complete on-page SEO optimization.
+              </p>
 
-            <div class="project-actions">
-              <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" class="btn-preview primary">
-                <i class="fa-solid fa-globe"></i>
-                <span data-i18n="p2_btn_visit">Visit Live Platform</span>
-              </a>
+              <div class="project-actions">
+                <a href="https://alfjracademy.com" target="_blank" rel="noopener noreferrer" class="btn-preview primary">
+                  <i class="fa-solid fa-globe"></i>
+                  <span data-i18n="p2_btn_visit">Visit Live Platform</span>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="tech-list-inline">
-            <span>WordPress</span>
-            <span>WooCommerce</span>
-            <span>PHP</span>
-            <span>CSS3</span>
-            <span>Technical SEO</span>
-            <span>Payment Gateways</span>
+            <div class="tech-list-inline">
+              <span>WordPress</span>
+              <span>WooCommerce</span>
+              <span>PHP</span>
+              <span>CSS3</span>
+              <span>Technical SEO</span>
+              <span>Payment Gateways</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-layer-group text-[var(--green)]"></i> <span data-i18n="p3_category">Mobile Architecture</span></span>
-            <div class="project-links">
-              <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app/releases/latest" target="_blank" rel="noopener noreferrer" title="Download APK Release" aria-label="Download APK">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+        <div class="project-panel" data-panel-idx="2" role="tabpanel">
+          <div class="project-card showcase-mode">
+            <div class="project-card-header">
+              <div class="project-header-meta">
+                <span class="project-category"><i class="fa-solid fa-layer-group text-[var(--green)]"></i> <span data-i18n="p3_category">Mobile Architecture</span></span>
+                <span class="project-pill-badge">03 / 04</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app/releases/latest" target="_blank" rel="noopener noreferrer" title="Download APK Release" aria-label="Download APK">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="project-body">
-            <h3 data-i18n="p3_title">Multi-Vendor E-Commerce App</h3>
-            <p data-i18n="p3_desc">
-              Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering,
-              dynamic cart state management with BLoC, authentication flow, and robust REST API data integration with Dio.
-            </p>
+            <div class="project-body">
+              <h3 data-i18n="p3_title">Multi-Vendor E-Commerce App</h3>
+              <p data-i18n="p3_desc">
+                Scalable mobile commerce client engineered with Flutter and strict Clean Architecture. Includes catalog browsing, category filtering,
+                dynamic cart state management with BLoC, authentication flow, and robust REST API data integration with Dio.
+              </p>
 
-            <div class="project-actions">
-              <button type="button" class="btn-preview primary" onclick="openEcomModal(1)">
-                <i class="fa-solid fa-images"></i>
-                <span data-i18n="p3_btn_screens">Browse Screenshots (6)</span>
-              </button>
-              <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" class="btn-preview">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
-              </a>
+              <div class="project-actions">
+                <button type="button" class="btn-preview primary" onclick="openEcomModal(1)">
+                  <i class="fa-solid fa-images"></i>
+                  <span data-i18n="p3_btn_screens">Browse Screenshots (6)</span>
+                </button>
+                <a href="https://github.com/a7mdabdoo/multi-vendor-ecommerce-app" target="_blank" rel="noopener noreferrer" class="btn-preview">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="tech-list-inline">
-            <span>Flutter</span>
-            <span>BLoC</span>
-            <span>Clean Arch</span>
-            <span>Dio REST</span>
-            <span>Repository Pattern</span>
+            <div class="tech-list-inline">
+              <span>Flutter</span>
+              <span>BLoC</span>
+              <span>Clean Arch</span>
+              <span>Dio REST</span>
+              <span>Repository Pattern</span>
+            </div>
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-card-header">
-            <span class="project-category"><i class="fa-solid fa-terminal text-[var(--green)]"></i> <span data-i18n="p4_category">Competitive Programming</span></span>
-            <div class="project-links">
-              <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" title="Visit Codeforces Profile" aria-label="Codeforces">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+        <div class="project-panel" data-panel-idx="3" role="tabpanel">
+          <div class="project-card showcase-mode">
+            <div class="project-card-header">
+              <div class="project-header-meta">
+                <span class="project-category"><i class="fa-solid fa-terminal text-[var(--green)]"></i> <span data-i18n="p4_category">Competitive Programming</span></span>
+                <span class="project-pill-badge">04 / 04</span>
+              </div>
+              <div class="project-links">
+                <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" title="Visit Codeforces Profile" aria-label="Codeforces">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="project-body">
-            <h3 data-i18n="p4_title">Algorithms &amp; Problem Solving</h3>
-            <p>
-              <span data-i18n="p4_desc_prefix">Active competitive programming profile on Codeforces (</span><span class="text-[var(--green)] font-mono font-bold">@a7md3bdo</span><span data-i18n="p4_desc_suffix">). Repository of 500+ solved algorithmic challenges in C++20 covering Graph Algorithms, Dynamic Programming, Segment Trees, and Number Theory.</span>
-            </p>
+            <div class="project-body">
+              <h3 data-i18n="p4_title">Algorithms &amp; Problem Solving</h3>
+              <p>
+                <span data-i18n="p4_desc_prefix">Active competitive programming profile on Codeforces (</span><span class="text-[var(--green)] font-mono font-bold">@a7md3bdo</span><span data-i18n="p4_desc_suffix">). Repository of 500+ solved algorithmic challenges in C++20 covering Graph Algorithms, Dynamic Programming, Segment Trees, and Number Theory.</span>
+              </p>
 
-            <div class="project-actions">
-              <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" class="btn-preview primary">
-                <i class="fa-solid fa-code"></i>
-                <span data-i18n="p4_btn_profile">View Codeforces Profile</span>
-              </a>
+              <div class="project-actions">
+                <a href="https://codeforces.com/profile/a7md3bdo" target="_blank" rel="noopener noreferrer" class="btn-preview primary">
+                  <i class="fa-solid fa-code"></i>
+                  <span data-i18n="p4_btn_profile">View Codeforces Profile</span>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="tech-list-inline">
-            <span>C++20</span>
-            <span>Algorithms</span>
-            <span>Data Structures</span>
-            <span>Graph Theory</span>
-            <span>Dynamic Programming</span>
+            <div class="tech-list-inline">
+              <span>C++20</span>
+              <span>Algorithms</span>
+              <span>Data Structures</span>
+              <span>Graph Theory</span>
+              <span>Dynamic Programming</span>
+            </div>
           </div>
         </div>
 
+      </div>
+
+      <div class="projects-nav-controls">
+        <button type="button" class="proj-nav-btn prev-btn" id="projPrevBtn" aria-label="Previous Project" title="Previous Project">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="project-dots" aria-label="Project Indicators">
+          <button type="button" class="dot active" data-dot-idx="0" aria-label="Project 1"></button>
+          <button type="button" class="dot" data-dot-idx="1" aria-label="Project 2"></button>
+          <button type="button" class="dot" data-dot-idx="2" aria-label="Project 3"></button>
+          <button type="button" class="dot" data-dot-idx="3" aria-label="Project 4"></button>
+        </div>
+
+        <span class="project-index-counter" id="projectIndexCounter">
+          <span class="current">01</span> / <span class="total">04</span>
+        </span>
+
+        <button type="button" class="proj-nav-btn next-btn" id="projNextBtn" aria-label="Next Project" title="Next Project">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="keyboard-nav-hint">
+          <i class="fa-regular fa-keyboard"></i>
+          <span data-i18n="projects_nav_hint">استخدم الأسهم ← → للتنقل</span>
+        </div>
       </div>
     </section>
 

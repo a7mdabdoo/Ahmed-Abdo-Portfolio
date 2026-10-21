@@ -115,5 +115,12 @@
     "Verified Vendor Storefront Directory",
     "Vendor-Grouped Cart with Subtotals",
     "Order Confirmation & Checkout Receipt"
-  ]
+  ],
+  "p1_tab_title": "Al-Minshawi Quran",
+  "p2_tab_title": "Alfjr Academy",
+  "p3_tab_title": "E-Commerce App",
+  "p4_tab_title": "Algorithms & C++",
+  "projects_nav_prev": "Previous Project",
+  "projects_nav_next": "Next Project",
+  "projects_nav_hint": "Use ← → arrow keys"
 }
